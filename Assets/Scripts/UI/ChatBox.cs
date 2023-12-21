@@ -12,6 +12,8 @@ public class ChatBox : MonoBehaviour
     private int curIndex = 0;
 
 
+
+
     //private void Start()
     //{xx
     //    InitChatBox("ahgsjdghasujhgdfasdghfaus shdjfhsadjfha sdhfsadhf sdhfjsdhfaksdhf sdfhjsdhfashdfjsdhf sjdfhksajdhf sdfhsjdhfasjdhfsjadhf sdjfhsadhfjsjdhfjsdfadfasdfasdfasdf");
@@ -47,6 +49,7 @@ public class ChatBox : MonoBehaviour
             if (!hasSetFinish)
             {
                 hasSetFinish = true;
+
             }
         }
     }
