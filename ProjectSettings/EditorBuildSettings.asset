@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/audition.unity
     guid: b18c004a15c9d6443a1eaac3ffbd0211
+  - enabled: 1
+    path: Assets/Scenes/map.unity
+    guid: 1d13172e6b0370c43ba50216fe1185e3
   m_configObjects: {}
