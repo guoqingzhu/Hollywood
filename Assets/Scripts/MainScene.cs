@@ -10,12 +10,28 @@ public class MainScene : MonoBehaviour
 {
 
     public GameObject player;
-    public Slider slider;
+    public GameObject guide;
 
-    public void Update()
+    public GameObject mapBtn;
+
+    public void Start()
     {
-        player.GetComponent<SkeletonGraphic>().timeScale = slider.value;
+        var isNew = PlayerPrefs.GetString("isNew");
+        Debug.Log(isNew);
+        if (isNew == "")
+        {
+            Instantiate(guide, transform);
+            PlayerPrefs.SetString("isNew", "false");
+            mapBtn.SetActive(true);
+        }
+        else
+        {
+            mapBtn.SetActive(true);
+
+        }
     }
+
+
 
     public void onClickDwitter()
     {
@@ -25,6 +41,10 @@ public class MainScene : MonoBehaviour
     public void onClickAudition()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void onClickMap() {
+        SceneManager.LoadScene(3);
     }
 
 }

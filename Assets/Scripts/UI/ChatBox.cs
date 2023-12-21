@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChatBox : MonoBehaviour
 {
     public TextMeshProUGUI context;
     public GameObject nextBtn;
     private bool hasSetFinish = false;
-    private int curIndex = 0;
+    private int curIndex = 1;
 
 
-
-
-    //private void Start()
-    //{xx
-    //    InitChatBox("ahgsjdghasujhgdfasdghfaus shdjfhsadjfha sdhfsadhf sdhfjsdhfaksdhf sdfhjsdhfashdfjsdhf sjdfhksajdhf sdfhsjdhfasjdhfsjadhf sdjfhsadhfjsjdhfjsdfadfasdfasdfasdf");
-    //}
+    public void Start()
+    {
+        gameObject.GetComponent<Button>().onClick.AddListener(onClickBox);
+        //
+        StartCoroutine(
+       SetTimeout(() =>
+       {
+           int pages = context.textInfo.pageCount;
+           if (curIndex < pages)
+           {
+               nextBtn.SetActive(true);
+           }
+       }, 0.01f));
+    }
 
     public void InitChatBox(string msg)
     {

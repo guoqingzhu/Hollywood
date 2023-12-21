@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Guide : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject answerBtn;
+    public GameObject hangupBtn;
+    public GameObject chatBox;
+
+    public void onClickAnswer()
     {
-        
+        answerBtn.SetActive(false);
+        chatBox.SetActive(true);
+        StartCoroutine(Utils.SetTimeout(() =>
+        {
+            hangupBtn.SetActive(true);
+        }, 1f));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void onClickHangup()
     {
-        
+        //�Ҷϵ绰
+        Destroy(gameObject);
     }
+
+
 }
