@@ -15,6 +15,8 @@ public class DwitterScene : MonoBehaviour
     public GameObject foryouBody;
     public GameObject followBody;
 
+    public GameObject submitPage;
+
     //private void Start()
     //{
     //    for (int i = 0; i < 20; i++)
@@ -88,5 +90,17 @@ public class DwitterScene : MonoBehaviour
         return -1;
     }
 
+    public void OnClickSubmit()
+    {
+        submitPage.SetActive(true);
+
+    }
+
+    public void OnClickSubmitCancel()
+    {
+        submitPage.SetActive(false);
+    }
+
+    public void OnClickPost() { }
 
 }
