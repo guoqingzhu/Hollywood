@@ -11,6 +11,12 @@ public class DWFooter : MonoBehaviour
     public GameObject messageBtn;
     public GameObject profileBtn;
 
+    public GameObject discoverContent;
+    public GameObject notificationContent;
+    public GameObject messageContent;
+    public GameObject profileContent;
+
+
     private int curIndex = 0;
 
     public void Awake()
@@ -20,6 +26,14 @@ public class DWFooter : MonoBehaviour
         messageBtn.GetComponent<Button>().onClick.AddListener(OnClickBtn);
         profileBtn.GetComponent<Button>().onClick.AddListener(OnClickBtn);
         ChoosePage(0);
+    }
+
+    public void ResetAllContent()
+    {
+        discoverContent.SetActive(false);
+        notificationContent.SetActive(false);
+        messageContent.SetActive(false);
+        profileContent.SetActive(false);
     }
 
     public void ResetAllBtn()
@@ -42,18 +56,22 @@ public class DWFooter : MonoBehaviour
             case 0:
                 discoverBtn.transform.GetChild(0).gameObject.SetActive(false);
                 discoverBtn.transform.GetChild(1).gameObject.SetActive(true);
+                discoverContent.SetActive(true);
                 break;
             case 1:
                 notificationBtn.transform.GetChild(0).gameObject.SetActive(false);
                 notificationBtn.transform.GetChild(1).gameObject.SetActive(true);
+                notificationContent.SetActive(true);
                 break;
             case 2:
                 messageBtn.transform.GetChild(0).gameObject.SetActive(false);
                 messageBtn.transform.GetChild(1).gameObject.SetActive(true);
+                messageContent.SetActive(true);
                 break;
             case 3:
                 profileBtn.transform.GetChild(0).gameObject.SetActive(false);
                 profileBtn.transform.GetChild(1).gameObject.SetActive(true);
+                profileContent.SetActive(true);
                 break;
         }
     }
@@ -62,6 +80,7 @@ public class DWFooter : MonoBehaviour
     {
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         ResetAllBtn();
+        ResetAllContent();
         if (clickedButton != null)
         {
             switch (clickedButton.name)
