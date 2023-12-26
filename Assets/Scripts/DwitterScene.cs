@@ -19,15 +19,6 @@ public class DwitterScene : MonoBehaviour
     public GameObject submitPage;
     public TMP_InputField postContent;
 
-    //private void Start()
-    //{
-    //    for (int i = 0; i < 20; i++)
-    //    {
-    //        var one = Instantiate(oneComment, foryouContent.transform);
-    //        one.GetComponent<SingleTW>().initTW("ajisdhgfuiasghuedifghsdfjhgiosdyfioghsdiofghsiodfghiosdhfgoi8shdfighsdoifghsdoifghsdorghosdfhgsodrghsodhfgsodrghsodrghroghsdrgsorehgsodrgyho");
-    //    }
-    //}
-
     public void onClickBack()
     {
         SceneManager.LoadScene(0);
