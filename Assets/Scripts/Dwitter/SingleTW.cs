@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,7 +18,6 @@ public class SingleTW : MonoBehaviour
     public void initTW(string data)
     {
         //tName.GetComponent<TMP_Text>().text = data.name;
-        //tdate.GetComponent<TMP_Text>().text = data.date;
 
         //textbox.GetComponent<TMP_Text>().text = data.content;
 
@@ -25,6 +25,7 @@ public class SingleTW : MonoBehaviour
         //share.GetComponent<TMP_Text>().text = data.shareNum.ToString();
         //like.GetComponent<TMP_Text>().text = data.likeNum.ToString();
 
+        tdate.GetComponent<TMP_Text>().text = getCurDate();
         textbox.GetComponent<TMP_Text>().text = data;
 
         //
@@ -35,6 +36,31 @@ public class SingleTW : MonoBehaviour
             var targetHeight = height + 180;
             GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, targetHeight);
         }, 0.01f));
+    }
+
+    private string getCurDate()
+    {
+        int month = DateTime.Now.Month;
+        int day = DateTime.Now.Day;
+        string date = "";
+
+        switch (month)
+        {
+            case 1: date = "Jan"; break;
+            case 2: date = "Feb"; break;
+            case 3: date = "Mar"; break;
+            case 4: date = "Apr"; break;
+            case 5: date = "May"; break;
+            case 6: date = "Jun"; break;
+            case 7: date = "Jul"; break;
+            case 8: date = "Aug"; break;
+            case 9: date = "Sep"; break;
+            case 10: date = "Oct"; break;
+            case 11: date = "Nov"; break;
+            case 12: date = "Dec"; break;
+        }
+
+        return date + "." + day;
     }
 
     private System.Collections.IEnumerator WaitForNextFrame()
