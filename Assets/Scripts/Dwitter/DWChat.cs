@@ -7,7 +7,8 @@ public class DWChat : MonoBehaviour
 {
     public GameObject headIcon;
     public GameObject inputField;
-    public GameObject chatBox;
+    public GameObject chatBox; //单条消息
+    public GameObject chatContent;// 消息父节点
 
     /// <summary>
     /// 初始化聊天界面
@@ -17,6 +18,8 @@ public class DWChat : MonoBehaviour
 
     public void OnClickSend()
     {
+        GameObject one = Instantiate(chatBox, chatContent.transform);
+        one.GetComponent<DWChatItem>().initContent(inputField.GetComponent<TMP_InputField>().text);
         inputField.GetComponent<TMP_InputField>().text = "";
     }
 
