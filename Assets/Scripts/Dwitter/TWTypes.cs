@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 
+
+/// <summary>
+/// 每一条推文的信息
+/// </summary>
 public class SingleTWData
 {
     public string headIconPath;
@@ -15,6 +19,46 @@ public class SingleTWData
 
 }
 
+/// <summary>
+/// 通知界面 单条通知的信息
+/// </summary>
+public class SingleNotification
+{
+    public string headIconPath;
+    public string name;
+    public string date;
+    public string content;
+}
+
+/// <summary>
+/// 消息界面 单条消息的数据结构
+/// </summary>
+public class SingleMessageTip
+{
+    public string headIconPath;
+    public string name;
+    public string date;
+    public string content;
+}
+
+/// <summary>
+/// 进入聊天界面初始化用的数据
+/// </summary>
+public class ChatInitData
+{
+    public string name; // 聊天对象名字
+    public string headIconPath; // 聊天对象头像
+    public SingleChatContent[] contents; // 以往的聊天内容
+}
+
+/// <summary>
+/// 聊天界面内的单条聊天内容
+/// </summary>
+public class SingleChatContent
+{
+    public string name;//发送消息的人
+    public string content;//内容
+}
 
 public enum OperationTypes
 {
