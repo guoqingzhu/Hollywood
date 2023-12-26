@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/libiary.unity
     guid: 21e76f01b45304b42b9c4f4e7c2a8778
+  - enabled: 1
+    path: Assets/Scenes/studio.unity
+    guid: 540d65892f84eba488010e11d4aa850c
   m_configObjects: {}

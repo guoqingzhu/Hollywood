@@ -12,7 +12,10 @@ public class Map : MonoBehaviour
 
     public void onClickCafe() { }
 
-    public void onClickStudio() { }
+    public void onClickStudio()
+    {
+        SceneManager.LoadScene(5);
+    }
 
     public void onClickCinema() { }
 
