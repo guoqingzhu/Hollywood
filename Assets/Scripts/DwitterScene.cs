@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,7 @@ public class DwitterScene : MonoBehaviour
     public GameObject followBody;
 
     public GameObject submitPage;
+    public TMP_InputField postContent;
 
     //private void Start()
     //{
@@ -101,6 +103,16 @@ public class DwitterScene : MonoBehaviour
         submitPage.SetActive(false);
     }
 
-    public void OnClickPost() { }
+    public void OnClickPost()
+    {
+        var one = Instantiate(oneComment, foryouContent.transform);
+        if (postContent.text != "")
+        {
+            one.GetComponent<SingleTW>().initTW(postContent.text);
+            postContent.text = "";
+            submitPage.SetActive(false);
+
+        }
+    }
 
 }

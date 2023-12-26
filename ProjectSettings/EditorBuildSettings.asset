@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/map.unity
     guid: 1d13172e6b0370c43ba50216fe1185e3
+  - enabled: 1
+    path: Assets/Scenes/libiary.unity
+    guid: 21e76f01b45304b42b9c4f4e7c2a8778
   m_configObjects: {}
