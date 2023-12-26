@@ -32,7 +32,6 @@ public class SingleTW : MonoBehaviour
         StartCoroutine(SetTimeout(() =>
         {
             var height = textbox.GetComponent<RectTransform>().rect.height;
-            Debug.Log(height);
             var targetHeight = height + 180;
             GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, targetHeight);
         }, 0.01f));
