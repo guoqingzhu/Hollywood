@@ -16,7 +16,11 @@ public class Map : MonoBehaviour
 
     public void onClickCinema() { }
 
-    public void onClickLibrary() { }
+    public void onClickLibrary()
+    {
+        SceneManager.LoadScene(4);
+
+    }
 
     public void onClickCBD() { }
 
