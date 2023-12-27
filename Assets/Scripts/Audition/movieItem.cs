@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class movieItem : MonoBehaviour
 {
-    public void onClickChoose() { }
+    public GameObject filmPic;
+    public GameObject fileName;
+    public GameObject director;
+
+    public void OnClickChoose() { }
 }
