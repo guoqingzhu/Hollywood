@@ -39,6 +39,11 @@ public class MainScene : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void onClickContact()
+    {
+        SceneManager.LoadScene(6);
+    }
+
     public void onClickAudition()
     {
         SceneManager.LoadScene(2);
