@@ -11,24 +11,25 @@ public class MainScene : MonoBehaviour
 
     public GameObject player;
     public GameObject guide;
-
     public GameObject mapBtn;
+
+    public MainNotification notification;
 
     public void Start()
     {
-        var isNew = PlayerPrefs.GetString("isNew");
-        Debug.Log(isNew);
-        if (isNew == "")
-        {
-            Instantiate(guide, transform);
-            PlayerPrefs.SetString("isNew", "false");
-            mapBtn.SetActive(true);
-        }
-        else
-        {
-            mapBtn.SetActive(true);
+        //var isNew = PlayerPrefs.GetString("isNew");
+        //if (isNew == "")
+        //{
+        //    //show guide
+        //    notification.InitPhoneNoti();
+        //}
+        //else
+        //{
+        //    //
+        //}
 
-        }
+        notification.InitPhoneNoti();
+        notification.InitMessageTip();
     }
 
 
@@ -43,7 +44,8 @@ public class MainScene : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void onClickMap() {
+    public void onClickMap()
+    {
         SceneManager.LoadScene(3);
     }
 
