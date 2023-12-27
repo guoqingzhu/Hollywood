@@ -5,8 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class Audition : MonoBehaviour
 {
-    public void OnClickBack()
+    public GameObject mainNode;
+    public GameObject typeNode;
+    public GameObject onSiteDes;
+
+    public void Start()
+    {
+        EventManger.GetInstance().AddEventListener("ShowAuditionType", (EventData data) =>
+        {
+            Debug.Log("get...");
+            mainNode.SetActive(false);
+            typeNode.SetActive(true);
+        }, null);
+    }
+
+    public void OnClickMainBack()
     {
         SceneManager.LoadScene(5);
+    }
+
+    public void OnClickChooseTypeBack()
+    {
+        mainNode.SetActive(true);
+        typeNode.SetActive(false);
+    }
+
+    public void OnClickRemoteType() { }
+
+    public void OnClickOnSiteType()
+    {
+        onSiteDes.SetActive(true);
     }
 }

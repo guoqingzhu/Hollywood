@@ -8,5 +8,10 @@ public class movieItem : MonoBehaviour
     public GameObject fileName;
     public GameObject director;
 
-    public void OnClickChoose() { }
+    public GameObject filmDetail;
+
+    public void OnClickChoose()
+    {
+        Instantiate(filmDetail, transform.parent.parent.parent.parent.transform);
+    }
 }

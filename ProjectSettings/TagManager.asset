@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ChatParent
   - MainPage
+  - AuditionMain
+  - AuditionType
   layers:
   - Default
   - TransparentFX
