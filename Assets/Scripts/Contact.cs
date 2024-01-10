@@ -10,3 +10,4 @@ public class Contact : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 }
+xx
