@@ -29,7 +29,14 @@ public class MainScene : MonoBehaviour
         //}
 
         notification.InitPhoneNoti();
-        notification.InitMessageTip();
+        //notification.InitMessageTip();
+        //UIManger.GetInstance().showChatBox(transform,"asdasdasd");
+        //var aa = new ArrayList();
+        //aa.Add("aaa");
+        //aa.Add("aaa");
+        //aa.Add("aaa");
+        //aa.Add("aaa");
+        //UIManger.GetInstance().showChooseBox(transform, aa);
     }
 
 
