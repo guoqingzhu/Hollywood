@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Guide : MonoBehaviour
 {
-
-
     public MainNotification mainNotification;
 
     public void Start()
