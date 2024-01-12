@@ -7,13 +7,13 @@ public class ChooseBox : MonoBehaviour
     public Transform content;
     public GameObject SingleChooseBoxPrefab;
 
-    public void InitChooseBox(ArrayList items)
+    public void InitChooseBox(List<ChooseInfo> items)
     {
 
         for (int i = 0; i < items.Count; i++)
         {
             var btn = Instantiate(SingleChooseBoxPrefab, content);
-            btn.GetComponent<SingleChooseBtn>().InitBtn(items[i].ToString());
+            btn.GetComponent<SingleChooseBtn>().InitBtn(items[i]);
         }
     }
 }

@@ -62,6 +62,8 @@ public class ChatBox : MonoBehaviour
             {
                 if (callBack != null) callBack();
                 hasSetFinish = true;
+                // ÁÄÍêºóÉ¾³ıÁÄÌì¿ò
+                Destroy(gameObject);
             }
         }
     }

@@ -34,11 +34,12 @@ public class UIManger : MonoBehaviour
     /// </summary>
     /// <param name="parent"></param>
     /// <param name="content"></param>
-    public void showChatBox(Transform parent, string content, ChatBox.CallBack cb = null)
+    public GameObject showChatBox(Transform parent, string content, ChatBox.CallBack cb = null)
     {
         var gameObject = LoadGameObject(chatBoxName);
         var box = Instantiate(gameObject, parent);
         box.GetComponent<ChatBox>().InitChatBox(content, cb);
+        return box;
     }
 
     //ArrayList aa = new ArrayList();
@@ -49,10 +50,11 @@ public class UIManger : MonoBehaviour
     /// </summary>
     /// <param name="parent"></param>
     /// <param name="items"></param>
-    public void showChooseBox(Transform parent, ArrayList items)
+    public GameObject showChooseBox(Transform parent, List<ChooseInfo> items)
     {
         var gameObject = LoadGameObject(chooseBoxName);
         var box = Instantiate(gameObject, parent);
         box.GetComponent<ChooseBox>().InitChooseBox(items);
+        return box;
     }
 }

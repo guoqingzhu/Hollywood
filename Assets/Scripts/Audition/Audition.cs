@@ -36,4 +36,12 @@ public class Audition : MonoBehaviour
     {
         onSiteDes.SetActive(true);
     }
+
+    public void OnClickChooseAudition()
+    {
+        if (Utils.IsGuide())
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 }

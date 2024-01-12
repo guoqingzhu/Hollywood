@@ -27,4 +27,13 @@ public class Map : MonoBehaviour
 
     public void onClickCBD() { }
 
+
+    public void Start()
+    {
+        if (Utils.IsGuide())
+        {
+            UIManger.GetInstance().showChatBox(transform, "Let's go into the studio");
+        }
+    }
+
 }

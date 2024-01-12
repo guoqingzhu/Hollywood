@@ -5,16 +5,15 @@ using UnityEngine;
 public class Guide : MonoBehaviour
 {
 
+
     public MainNotification mainNotification;
 
     public void Start()
     {
-        mainNotification.InitPhoneNoti();
-
-        //UIManger.GetInstance().showChatBox(transform.parent, "HIHIHI", () =>
-        //{
-        //    Debug.Log("zzzfinish");
-        //});
-
+        if (Utils.GetInstance().hasGetGuideCall == false)
+        {
+            Utils.GetInstance().hasGetGuideCall = true;
+            mainNotification.InitPhoneNoti();
+        }
     }
 }

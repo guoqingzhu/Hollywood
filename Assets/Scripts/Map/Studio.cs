@@ -9,9 +9,17 @@ public class Studio : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
-
-    public void OnClickAudition()
+    public void Start()
     {
-        SceneManager.LoadScene(2);
+        if (Utils.IsGuide())
+        {
+            var list = new List<ChooseInfo> {
+                new("Audition",() => {
+                 SceneManager.LoadScene(2);
+                }
+                )};
+
+            UIManger.GetInstance().showChooseBox(transform, list);
+        }
     }
 }
