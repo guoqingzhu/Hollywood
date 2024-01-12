@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/contact.unity
     guid: 7f492e6e883c846669a20214f4193360
+  - enabled: 1
+    path: Assets/Scenes/shooting.unity
+    guid: e9830adbb60a3e649bf9cddcd33bfcc6
   m_configObjects: {}

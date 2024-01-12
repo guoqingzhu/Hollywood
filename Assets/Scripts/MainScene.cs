@@ -56,6 +56,11 @@ public class MainScene : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void onClickShooting()
+    {
+        SceneManager.LoadScene(7);
+    }
+
     public void onClickMap()
     {
         SceneManager.LoadScene(3);
