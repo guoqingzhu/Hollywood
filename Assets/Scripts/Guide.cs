@@ -4,25 +4,17 @@ using UnityEngine;
 
 public class Guide : MonoBehaviour
 {
-    public GameObject answerBtn;
-    public GameObject hangupBtn;
-    public GameObject chatBox;
 
-    public void onClickAnswer()
+    public MainNotification mainNotification;
+
+    public void Start()
     {
-        answerBtn.SetActive(false);
-        chatBox.SetActive(true);
-        StartCoroutine(Utils.SetTimeout(() =>
-        {
-            hangupBtn.SetActive(true);
-        }, 1f));
+        mainNotification.InitPhoneNoti();
+
+        //UIManger.GetInstance().showChatBox(transform.parent, "HIHIHI", () =>
+        //{
+        //    Debug.Log("zzzfinish");
+        //});
+
     }
-
-    public void onClickHangup()
-    {
-        //�Ҷϵ绰
-        Destroy(gameObject);
-    }
-
-
 }

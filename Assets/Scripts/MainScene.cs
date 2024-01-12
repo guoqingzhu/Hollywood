@@ -28,7 +28,7 @@ public class MainScene : MonoBehaviour
         //    //
         //}
 
-        notification.InitPhoneNoti();
+        //notification.InitPhoneNoti();
         //notification.InitMessageTip();
         //UIManger.GetInstance().showChatBox(transform,"asdasdasd");
         //var aa = new ArrayList();

@@ -9,4 +9,11 @@ public class Utils : MonoBehaviour
         yield return new WaitForSeconds(delay);
         action?.Invoke();
     }
+
+
+    public static bool IsGuide()
+    {
+        return true;
+    }
+
 }

@@ -11,6 +11,9 @@ public class ChatBox : MonoBehaviour
     private bool hasSetFinish = false;
     private int curIndex = 1;
 
+    public delegate void CallBack();
+
+    private CallBack callBack = null;
 
     public void Start()
     {
@@ -27,9 +30,10 @@ public class ChatBox : MonoBehaviour
        }, 0.01f));
     }
 
-    public void InitChatBox(string msg)
+    public void InitChatBox(string msg, CallBack cb = null)
     {
         context.text = msg;
+        if (cb != null) callBack = cb;
         StartCoroutine(
        SetTimeout(() =>
        {
@@ -56,8 +60,8 @@ public class ChatBox : MonoBehaviour
         {
             if (!hasSetFinish)
             {
+                if (callBack != null) callBack();
                 hasSetFinish = true;
-
             }
         }
     }

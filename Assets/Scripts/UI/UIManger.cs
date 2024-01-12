@@ -10,11 +10,7 @@ public class UIManger : MonoBehaviour
 
     private string originPath = "Prefabs/UI/";
     private string chatBoxName = "ChatBox";
-
     private string chooseBoxName = "ChooseBox";
-
-
-
 
     public static UIManger GetInstance()
     {
@@ -38,11 +34,11 @@ public class UIManger : MonoBehaviour
     /// </summary>
     /// <param name="parent"></param>
     /// <param name="content"></param>
-    public void showChatBox(Transform parent, string content)
+    public void showChatBox(Transform parent, string content, ChatBox.CallBack cb = null)
     {
         var gameObject = LoadGameObject(chatBoxName);
         var box = Instantiate(gameObject, parent);
-        box.GetComponent<ChatBox>().InitChatBox(content);
+        box.GetComponent<ChatBox>().InitChatBox(content, cb);
     }
 
     //ArrayList aa = new ArrayList();
@@ -59,5 +55,4 @@ public class UIManger : MonoBehaviour
         var box = Instantiate(gameObject, parent);
         box.GetComponent<ChooseBox>().InitChooseBox(items);
     }
-
 }
