@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // 控制场景内的UI显示
 public class UIManger : MonoBehaviour
@@ -9,6 +10,7 @@ public class UIManger : MonoBehaviour
     private static UIManger _instance;
 
     private string originPath = "Prefabs/UI/";
+    private string actoriginPath = "Prefabs/Actor/";
     private string chatBoxName = "ChatBox";
     private string chooseBoxName = "ChooseBox";
     private string actChatBoxName = "ActChatBox";
@@ -61,11 +63,15 @@ public class UIManger : MonoBehaviour
         return box;
     }
 
+
+
+
     public GameObject showActChatBox(Transform parent, string actName, string msg, ActChatBox.CallBack cb = null)
     {
         var gameObject = LoadGameObject(actChatBoxName);
         var box = Instantiate(gameObject, parent);
-        box.GetComponent<ActChatBox>().InitChatBox(actName, msg, cb);
+        Texture2D actImage = Resources.Load<Texture2D>(actoriginPath+actName);
+        box.GetComponent<ActChatBox>().InitChatBox(actName, actImage, msg, cb);
         return box;
     }
 }
