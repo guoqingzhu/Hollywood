@@ -123,3 +123,67 @@ class GptNews
     public string Post;
     public string[] Comments;
 }
+
+
+/// <summary>
+/// 获取用户信息的数据类型
+/// </summary>
+/// 
+[Serializable]
+public class GetUserInfoType
+{
+    public string code;
+    public string message;
+    public GetUserInfoData data;
+}
+
+[Serializable]
+public class GetUserInfoData
+{
+    public string id;
+    public string device_id;
+    public string nickname;
+    public string special_npc_name;
+    public int age;
+    public string gender;
+    public string[] personality;
+    public string occupation;
+    public UserInfoAttribute attribute;
+    public RoundInfo current_round;
+    public UserFilmInfo film;
+}
+
+[Serializable]
+public class UserInfoAttribute
+{
+    public string text;
+    public UserValues values;
+}
+
+
+[Serializable]
+public class UserValues
+{
+    public string collaboration;
+    public string crime;
+    public string facial_expressions;
+    public string fame;
+    public string favorability;
+    public string interest_psychic;
+    public string lines_dialogues;
+    public string physical_expression;
+    public string romance;
+    public string science_fiction;
+}
+
+[Serializable]
+public class RoundInfo
+{
+
+}
+
+[Serializable]
+public class UserFilmInfo
+{
+
+}
