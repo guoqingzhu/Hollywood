@@ -1,10 +1,6 @@
 using Spine.Unity;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MainScene : MonoBehaviour
 {
@@ -22,14 +18,14 @@ public class MainScene : MonoBehaviour
 
     public void OnClickNetTest()
     {
-        // string postData = "{\"device_id\": \"xxxx0001\", \"event_id\": \"TwoActorsInteraction\"}";
-        string postData = "{\"device_id\": \"xxxx0001\", \"option_id\": \"player_capture_select_option_goodness\"}";
+        string postData = "{\"device_id\": \"xxxx0001\", \"event_id\": \"TwoActorsInteraction\"}";
+        //string postData = "{\"device_id\": \"xxxx0001\", \"option_id\": \"player_capture_select_option_goodness\"}";
         System.Action<string> onSuccess = (response) =>
         {
             Debug.Log("Request successful. Response: " + response);
-            //StartGameType startGameType = JsonUtility.FromJson<StartGameType>(response);
-            GetResultType startGameType = JsonUtility.FromJson<GetResultType>(response);
-            Debug.Log(startGameType.data.gpt_outcome.Event_Progress);
+
+            StartGameType startGameType = JsonUtility.FromJson<StartGameType>(response);
+            //GetResultType startGameType = JsonUtility.FromJson<GetResultType>(response);
             // 在这里处理成功响应的逻辑
         };
 
@@ -40,7 +36,7 @@ public class MainScene : MonoBehaviour
             // 在这里处理失败响应的逻辑
         };
 
-        string uri = NetManger.devpath + NetManger.getResult;
+        string uri = NetManger.devpath + NetManger.startGame;
 
         StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, onSuccess, onFailure));
     }

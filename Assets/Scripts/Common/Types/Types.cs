@@ -38,7 +38,7 @@ public class ActorData
     public string name;
     public string occupation;
     public string identity;
-    public string event_name;
+    public string event_v1;
     public string personality;
     public string hobbies;
 
@@ -91,11 +91,11 @@ public class OptionOutCome
 [Serializable]
 public class GptOutCome
 {
-    public string Rection;
-    public string Event_Progress;
-    public string Outcome;
-    public string Headline;
-    public string Exended_Conversation;
+    public string reaction;
+    public string event_progress;
+    public string outcome;
+    public string headline;
+    public string extended_conversation;
 }
 
 

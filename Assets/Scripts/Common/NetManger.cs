@@ -5,7 +5,9 @@ using UnityEngine.Networking;
 
 public class NetManger : MonoBehaviour
 {
-    public static string devpath = "http://121.40.64.87:8091/";
+    //public static string devpath = "http://121.40.64.87:8091/";
+    public static string devpath = "http://172.40.2.4:8091/";
+
     public static string startGame = "hollywood/members/start-or-nextround";
     public static string getResult = "hollywood/members/outcome";
     public static string getComment = "hollywood/members/outcome-news";
