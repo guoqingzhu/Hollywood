@@ -7,6 +7,8 @@ public class NetManger : MonoBehaviour
 {
     public static string devpath = "http://121.40.64.87:8091/";
     public static string startGame = "hollywood/members/start-or-nextround";
+    public static string getResult = "hollywood/members/outcome";
+    public static string getComment = "hollywood/members/outcome-news";
 
     private static NetManger _instance;
 
@@ -36,7 +38,7 @@ public class NetManger : MonoBehaviour
 
     public IEnumerator PostRequest(string uri, string postData, System.Action<string> onSuccess, System.Action<string> onFailure)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, postData,"application/json"))
+        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, postData, "application/json"))
         {
             yield return webRequest.SendWebRequest();
 
