@@ -5,6 +5,9 @@ using UnityEngine.Networking;
 
 public class NetManger : MonoBehaviour
 {
+    public static string devpath = "http://121.40.64.87:8091/";
+    public static string startGame = "hollywood/members/start-or-nextround";
+
     private static NetManger _instance;
 
 
@@ -13,19 +16,8 @@ public class NetManger : MonoBehaviour
         return _instance ?? (_instance = new NetManger());
     }
 
-    // 发送GET请求
-    public void SendGetRequest(string url, System.Action<string> onSuccess, System.Action<string> onFailure)
-    {
-        StartCoroutine(GetRequest(url, onSuccess, onFailure));
-    }
 
-    // 发送POST请求
-    public void SendPostRequest(string url, string postData, System.Action<string> onSuccess, System.Action<string> onFailure)
-    {
-        StartCoroutine(PostRequest(url, postData, onSuccess, onFailure));
-    }
-
-    IEnumerator GetRequest(string uri, System.Action<string> onSuccess, System.Action<string> onFailure)
+    public IEnumerator GetRequest(string uri, System.Action<string> onSuccess, System.Action<string> onFailure)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
@@ -42,12 +34,9 @@ public class NetManger : MonoBehaviour
         }
     }
 
-    IEnumerator PostRequest(string uri, string postData, System.Action<string> onSuccess, System.Action<string> onFailure)
+    public IEnumerator PostRequest(string uri, string postData, System.Action<string> onSuccess, System.Action<string> onFailure)
     {
-        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        formData.Add(new MultipartFormDataSection(postData));
-
-        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, formData))
+        using (UnityWebRequest webRequest = UnityWebRequest.Post(uri, postData,"application/json"))
         {
             yield return webRequest.SendWebRequest();
 

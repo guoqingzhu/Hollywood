@@ -17,28 +17,31 @@ public class MainScene : MonoBehaviour
 
     public void Start()
     {
-        //var isNew = PlayerPrefs.GetString("isNew");
-        //if (isNew == "")
-        //{
-        //    //show guide
-        //    notification.InitPhoneNoti();
-        //}
-        //else
-        //{
-        //    //
-        //}
 
-        //notification.InitPhoneNoti();
-        //notification.InitMessageTip();
-        //UIManger.GetInstance().showChatBox(transform,"asdasdasd");
-        //var aa = new ArrayList();
-        //aa.Add("aaa");
-        //aa.Add("aaa");
-        //aa.Add("aaa");
-        //aa.Add("aaa");
-        //UIManger.GetInstance().showChooseBox(transform, aa);
     }
 
+    public void OnClickNetTest()
+    {
+        string postData = "{\"device_id\": \"xxxx0001\", \"event_id\": \"TwoActorsInteraction\"}";
+        System.Action<string> onSuccess = (response) =>
+        {
+            Debug.Log("Request successful. Response: " + response);
+            // 在这里处理成功响应的逻辑
+        };
+
+        // 定义请求失败时要执行的操作
+        System.Action<string> onFailure = (error) =>
+        {
+            Debug.Log("Request failed. Error: " + error);
+            // 在这里处理失败响应的逻辑
+        };
+
+        string uri = NetManger.devpath + NetManger.startGame;
+
+        Debug.Log(uri);
+
+        StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, onSuccess, onFailure));
+    }
 
 
     public void onClickDwitter()
