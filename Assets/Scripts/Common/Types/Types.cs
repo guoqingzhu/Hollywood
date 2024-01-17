@@ -97,3 +97,29 @@ public class GptOutCome
     public string Headline;
     public string Exended_Conversation;
 }
+
+
+/// <summary>
+/// 以下是根据结果获取新闻评论的数据类型
+/// </summary>
+[Serializable]
+class GetCommentType
+{
+    public string code;
+    public string message;
+    public GetCommentData data;
+}
+
+[Serializable]
+class GetCommentData
+{
+    public GptNews[] gpt_news;
+
+}
+
+[Serializable]
+class GptNews
+{
+    public string Post;
+    public string[] Comments;
+}
