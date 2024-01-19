@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DwitterScene : MonoBehaviour
 {
@@ -21,7 +20,7 @@ public class DwitterScene : MonoBehaviour
 
     public void onClickBack()
     {
-        SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
 
     public void onClickForyou()
