@@ -81,4 +81,9 @@ public class MainScene : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+
+    public void ClickTest()
+    {
+        Debug.Log("zgq---test");
+    }
 }
