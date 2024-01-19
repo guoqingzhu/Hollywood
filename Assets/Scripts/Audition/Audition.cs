@@ -8,6 +8,7 @@ public class Audition : MonoBehaviour
     public GameObject mainNode;
     public GameObject typeNode;
     public GameObject onSiteDes;
+    public GameObject btns;
 
     public void Start()
     {
@@ -34,6 +35,13 @@ public class Audition : MonoBehaviour
 
     public void OnClickOnSiteType()
     {
+        //onSiteDes.SetActive(true);
+    }
+
+
+    public void OnClickSkip()
+    {
+        btns.SetActive(false);
         onSiteDes.SetActive(true);
     }
 
