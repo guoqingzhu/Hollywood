@@ -837,7 +837,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 16397521}
         m_TargetAssemblyTypeName: MainScene, Assembly-CSharp
-        m_MethodName: ClickTest
+        m_MethodName: onClickShooting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
