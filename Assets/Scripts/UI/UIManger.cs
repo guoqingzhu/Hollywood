@@ -11,11 +11,14 @@ public class UIManger : MonoBehaviour
 
     private string originPath = "Prefabs/UI/";
     private string actoriginPath = "Prefabs/Actor/";
+
+
     private string chatBoxName = "ChatBox";
     private string chooseBoxName = "ChooseBox";
     private string actChatBoxName = "ActChatBox";
     private string loading = "Loading";
 
+    private string shootingScene = "shootingScene";
 
 
     public static UIManger GetInstance()
@@ -84,5 +87,12 @@ public class UIManger : MonoBehaviour
         var gameObject = LoadGameObject(loading);
         var box = Instantiate(gameObject, parent);
         return box;
+    }
+
+    public GameObject ShowShootingScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(shootingScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
     }
 }

@@ -56,12 +56,13 @@ public class Shooting : MonoBehaviour
 
     public void OnClickHone()
     {
-        SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
 
     public void OnClickNextScene()
     {
-
+        Destroy(gameObject);
+        UIManger.GetInstance().ShowShootingScene(transform.parent);
     }
 
     /// <summary>
