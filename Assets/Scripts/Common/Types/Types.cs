@@ -10,6 +10,13 @@ using UnityEngine;
 /// 
 
 [Serializable]
+public class StartGameReq
+{
+    public string device_id;
+    public string event_id;
+}
+
+[Serializable]
 public class StartGameType
 {
     public string code;
@@ -66,6 +73,15 @@ public class Gpt_options
 /// <summary>
 /// 一下是根据选项获取结果的数据类型
 /// </summary>
+/// 
+
+[Serializable]
+public class GetResultReq
+{
+    public string device_id;
+    public string option_id;
+}
+
 [Serializable]
 public class GetResultType
 {

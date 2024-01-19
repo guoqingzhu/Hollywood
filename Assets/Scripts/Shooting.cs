@@ -12,6 +12,10 @@ public class Shooting : MonoBehaviour
     public GameObject FinalPage;
     public TMP_Text themeName;
 
+    public TMP_Text reaction_text;
+    public TMP_Text event_progress_text;
+    public TMP_Text roundNumText;
+
     private StartGameType gameData;
     private int curIndex = 0;
     private string[] allDialogs;
@@ -24,7 +28,10 @@ public class Shooting : MonoBehaviour
     public void Start()
     {
         var loading = UIManger.GetInstance().showLoading(transform);
-        string postData = "{\"device_id\": \"xxxx0001\", \"event_id\": \"TwoActorsInteraction\"}";
+        var data = new StartGameReq();
+        data.device_id = "xxxx0001";
+        data.event_id = "TwoActorsInteraction";
+        string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.startGame;
         StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (resonse) =>
         {
@@ -33,6 +40,7 @@ public class Shooting : MonoBehaviour
             string theme = gameData.data.event_theme;
             allDialogs = gameData.data.gpt_options.dialogue;
             themeName.text = theme;
+            roundNumText.text = "The " + gameData.data.round_number + "rd" + " day of shooting";
             optionA = gameData.data.gpt_options.a;
             optionB = gameData.data.gpt_options.b;
             optionC = gameData.data.gpt_options.c;
@@ -51,16 +59,35 @@ public class Shooting : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void OnClickNextScene() { }
+    public void OnClickNextScene()
+    {
+
+    }
 
     /// <summary>
     /// 显示结果，但是需要提前将前置条件发给后端
     /// </summary>
     /// <param name="info"></param>
-    Task ShowFinal(string info)
+    void ShowFinal(string info)
     {
-        FinalPage.SetActive(true);
-        return null;
+        var loading = UIManger.GetInstance().showLoading(transform);
+        var data = new GetResultReq();
+        data.device_id = "xxxx0001";
+        data.option_id = info;
+        string postData = JsonUtility.ToJson(data);
+        string uri = NetManger.devpath + NetManger.getResult;
+        StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (response) =>
+        {
+            Destroy(loading);
+            FinalPage.SetActive(true);
+            GetResultType result = JsonUtility.FromJson<GetResultType>(response);
+            reaction_text.text = result.data.gpt_outcome.reaction;
+            event_progress_text.text = result.data.gpt_outcome.event_progress;
+        }, (error) =>
+        {
+            Debug.Log(error);
+        }));
+
     }
 
     void showOneDialog(int index)
@@ -86,16 +113,16 @@ public class Shooting : MonoBehaviour
     {
         var list = new List<ChooseInfo> {
                         new(optionA, ()=>{
-                            ShowFinal(optionA);
+                            ShowFinal("player_capture_select_option_goodness");
                         }),
                         new(optionB,() => {
-                           ShowFinal(optionB);
+                           ShowFinal("player_capture_select_option_evil");
                         }) ,
                         new(optionC,() => {
-                            ShowFinal(optionC);
+                            ShowFinal("player_capture_select_option_nonintervene");
                         }),
                          new(optionD,() => {
-                            ShowFinal(optionD);
+                            ShowFinal("player_capture_select_option_prank");
                         }),
                    };
         UIManger.GetInstance().showChooseBox(transform, list);
