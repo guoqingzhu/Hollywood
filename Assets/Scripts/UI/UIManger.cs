@@ -14,6 +14,7 @@ public class UIManger : MonoBehaviour
     private string chatBoxName = "ChatBox";
     private string chooseBoxName = "ChooseBox";
     private string actChatBoxName = "ActChatBox";
+    private string loading = "Loading";
 
 
 
@@ -64,14 +65,24 @@ public class UIManger : MonoBehaviour
     }
 
 
-
-
     public GameObject showActChatBox(Transform parent, string actName, string msg, ActChatBox.CallBack cb = null)
     {
         var gameObject = LoadGameObject(actChatBoxName);
         var box = Instantiate(gameObject, parent);
-        Texture2D actImage = Resources.Load<Texture2D>(actoriginPath+actName);
-        box.GetComponent<ActChatBox>().InitChatBox(actName, actImage, msg, cb);
+        //Texture2D actImage = Resources.Load<Texture2D>(actoriginPath + actName);
+        box.GetComponent<ActChatBox>().InitChatBox(actName, null, msg, cb);
+        return box;
+    }
+
+    /// <summary>
+    /// œ‘ æº”‘ÿ°£°£°£
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <returns></returns>
+    public GameObject showLoading(Transform parent)
+    {
+        var gameObject = LoadGameObject(loading);
+        var box = Instantiate(gameObject, parent);
         return box;
     }
 }

@@ -34,10 +34,10 @@ public class ActChatBox : MonoBehaviour
        }, 0.01f));
     }
 
-    public void InitChatBox(string name, Texture2D actor,string msg, CallBack cb = null)
+    public void InitChatBox(string name, Texture2D actor, string msg, CallBack cb = null)
     {
         //actorNode.GetComponent<Image>().material.mainTexture = actor;
-        actorNode.GetComponent<Image>().sprite = Sprite.Create(actor, new Rect(0, 0, actor.width, actor.height), new Vector2(0.5f, 0.5f));
+        //actorNode.GetComponent<Image>().sprite = Sprite.Create(actor, new Rect(0, 0, actor.width, actor.height), new Vector2(0.5f, 0.5f));
         actname.text = name;
         context.text = msg;
         if (cb != null) callBack = cb;

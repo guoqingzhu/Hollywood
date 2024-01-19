@@ -28,7 +28,7 @@ public class StartGameData
     public string location;
     public string weather;
     public Attributes[] attribute_values;
-    public Gpt_options[] gpt_options;
+    public Gpt_options gpt_options;
 }
 
 [Serializable]
@@ -47,20 +47,20 @@ public class ActorData
 [Serializable]
 public class Attributes
 {
-    public string Key;
-    public int Value;
+    public string key;
+    public int value;
 }
 
 [Serializable]
 public class Gpt_options
 {
-    public string[] Dialogue;
-    public String Monologue;
-    public String Event;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
+    public string[] dialogue;
+    public String monologue;
+    public String event_v1;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 }
 
 /// <summary>
