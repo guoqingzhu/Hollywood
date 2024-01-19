@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -66,7 +65,7 @@ public class Shooting : MonoBehaviour
     }
 
     /// <summary>
-    /// ÏÔÊ¾½á¹û£¬µ«ÊÇÐèÒªÌáÇ°½«Ç°ÖÃÌõ¼þ·¢¸øºó¶Ë
+    /// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ç°ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="info"></param>
     void ShowFinal(string info)
