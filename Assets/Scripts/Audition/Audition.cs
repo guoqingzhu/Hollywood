@@ -14,7 +14,6 @@ public class Audition : MonoBehaviour
     {
         EventManger.GetInstance().AddEventListener("ShowAuditionType", (EventData data) =>
         {
-            Debug.Log("get...");
             mainNode.SetActive(false);
             typeNode.SetActive(true);
         }, null);
@@ -22,34 +21,17 @@ public class Audition : MonoBehaviour
 
     public void OnClickMainBack()
     {
-        SceneManager.LoadScene(5);
-    }
-
-    public void OnClickChooseTypeBack()
-    {
-        mainNode.SetActive(true);
-        typeNode.SetActive(false);
+        Destroy(gameObject);
     }
 
     public void OnClickRemoteType() { }
 
-    public void OnClickOnSiteType()
-    {
-        //onSiteDes.SetActive(true);
-    }
+    public void OnClickOnSiteType() { }
 
 
     public void OnClickSkip()
     {
         btns.SetActive(false);
         onSiteDes.SetActive(true);
-    }
-
-    public void OnClickChooseAudition()
-    {
-        if (Utils.IsGuide())
-        {
-            SceneManager.LoadScene(0);
-        }
     }
 }

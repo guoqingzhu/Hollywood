@@ -7,6 +7,6 @@ public class Library : MonoBehaviour
 {
     public void OnClickBack()
     {
-        SceneManager.LoadScene(3);
+        Destroy(gameObject);
     }
 }

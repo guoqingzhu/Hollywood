@@ -18,7 +18,14 @@ public class UIManger : MonoBehaviour
     private string actChatBoxName = "ActChatBox";
     private string loading = "Loading";
 
-    private string shootingScene = "shootingScene";
+    private string shootingScene = "Scene/shootingScene";
+    private string auditionScene = "Scene/auditionScene";
+    private string mapScene = "Scene/mapScene";
+    private string contactScene = "Scene/contactScene";
+    private string dwitterScene = "Scene/dwitterScene";
+    private string libraryScene = "Scene/libraryScene";
+    private string studioScene = "Scene/studioScene";
+
 
 
     public static UIManger GetInstance()
@@ -95,4 +102,47 @@ public class UIManger : MonoBehaviour
         var node = Instantiate(gameObject, parent);
         return node;
     }
+
+    public GameObject ShowAuditionScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(auditionScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
+    public GameObject ShowMapScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(mapScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
+    public GameObject ShowcontactScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(contactScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
+    public GameObject ShowDwitterScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(dwitterScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
+    public GameObject ShowLibiaryScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(libraryScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
+    public GameObject ShowStudioScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(studioScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
 }

@@ -7,7 +7,7 @@ public class Studio : MonoBehaviour
 {
     public void OnClickBack()
     {
-        SceneManager.LoadScene(3);
+        Destroy(gameObject);
     }
     public void Start()
     {
@@ -15,7 +15,8 @@ public class Studio : MonoBehaviour
         {
             var list = new List<ChooseInfo> {
                 new("Audition",() => {
-                 SceneManager.LoadScene(2);
+                 Destroy(gameObject);
+                    UIManger.GetInstance().ShowAuditionScene(transform.parent);
                 }
                 )};
 

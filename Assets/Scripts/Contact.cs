@@ -7,6 +7,6 @@ public class Contact : MonoBehaviour
 {
     public void OnClickBack()
     {
-        SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
 }

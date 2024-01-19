@@ -1,28 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Map : MonoBehaviour
 {
     public void onClickBack()
     {
-        SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
 
     public void onClickCafe() { }
 
     public void onClickStudio()
     {
-        SceneManager.LoadScene(5);
+        UIManger.GetInstance().ShowStudioScene(transform);
     }
 
     public void onClickCinema() { }
 
     public void onClickLibrary()
     {
-        SceneManager.LoadScene(4);
-
+        UIManger.GetInstance().ShowLibiaryScene(transform);
     }
 
     public void onClickCBD() { }
