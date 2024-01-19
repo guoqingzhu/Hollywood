@@ -1,5 +1,4 @@
-using Spine.Unity;
-using UnityEditor.PackageManager;
+
 using UnityEngine;
 
 public class MainScene : MonoBehaviour

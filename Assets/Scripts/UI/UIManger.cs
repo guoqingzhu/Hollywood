@@ -22,7 +22,7 @@ public class UIManger : MonoBehaviour
     private string auditionScene = "Scene/auditionScene";
     private string mapScene = "Scene/mapScene";
     private string contactScene = "Scene/contactScene";
-    private string dwitterScene = "Scene/dwitterScene";
+    private string dwitterScene = "Scene/dwitterSceneNew";
     private string libraryScene = "Scene/libraryScene";
     private string studioScene = "Scene/studioScene";
 

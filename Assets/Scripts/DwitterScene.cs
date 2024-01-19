@@ -20,7 +20,7 @@ public class DwitterScene : MonoBehaviour
 
     public void onClickBack()
     {
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     public void onClickForyou()

@@ -30,15 +30,12 @@ public class PhoneCall : MonoBehaviour
                {
                    var list = new List<ChooseInfo> {
                         new("Hang Out",()=>{
-                            Debug.Log("Choose 1");
                             OnGuideChoose();
                         }),
                         new("Audition",() => {
-                            Debug.Log("Choose 2");
                             OnGuideChoose();
                         }) ,
                         new("Learn The Basics",() => {
-                            Debug.Log("Choose 3");
                             OnGuideChoose();
                         }),
                    };
