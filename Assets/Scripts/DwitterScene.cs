@@ -39,6 +39,26 @@ public class DwitterScene : MonoBehaviour
         followBody.SetActive(true);
     }
 
+
+    private void Start()
+    {
+        var loading = UIManger.GetInstance().showLoading(transform);
+        var data = new GetcommentsReq();
+        data.device_id = "xxxx0001";
+        string postData = JsonUtility.ToJson(data);
+        string uri = NetManger.devpath + NetManger.getComment;
+        StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (resonse) =>
+        {
+            Destroy(loading);
+            GetCommentType commentData = JsonUtility.FromJson<GetCommentType>(resonse);
+            var one = Instantiate(oneComment, foryouContent.transform);
+            Debug.Log(resonse);
+            Debug.Log(commentData.data.gpt_news.post);
+            one.GetComponent<SingleTW>().initTW(commentData.data);
+
+        }, (error) => { }));
+    }
+
     private void Update()
     {
         var curSwipe = DetectSwipeDirection();
@@ -98,7 +118,10 @@ public class DwitterScene : MonoBehaviour
         var one = Instantiate(oneComment, foryouContent.transform);
         if (postContent.text != "")
         {
-            one.GetComponent<SingleTW>().initTW(postContent.text);
+            GetCommentData data = new GetCommentData();
+            data.gpt_news = new GptNews();
+            data.gpt_news.post = postContent.text;
+            one.GetComponent<SingleTW>().initTW(data);
             postContent.text = "";
             submitPage.SetActive(false);
 

@@ -118,8 +118,17 @@ public class GptOutCome
 /// <summary>
 /// 以下是根据结果获取新闻评论的数据类型
 /// </summary>
+/// 
+
 [Serializable]
-class GetCommentType
+public class GetcommentsReq
+{
+    public string device_id;
+}
+
+
+[Serializable]
+public class GetCommentType
 {
     public string code;
     public string message;
@@ -127,17 +136,17 @@ class GetCommentType
 }
 
 [Serializable]
-class GetCommentData
+public class GetCommentData
 {
-    public GptNews[] gpt_news;
+    public GptNews gpt_news;
 
 }
 
 [Serializable]
-class GptNews
+public class GptNews
 {
-    public string Post;
-    public string[] Comments;
+    public string post;
+    public string[] comments;
 }
 
 
@@ -195,7 +204,26 @@ public class UserValues
 [Serializable]
 public class RoundInfo
 {
+    public int number;
+    public RoundEvevnt event_v1;
+    public ActorData actors;
+    public Gpt_options gpt_options;
+    public GptOutCome gpt_outcome;
+}
 
+[Serializable]
+public class RoundEvevnt
+{
+    public string id;
+    public string description;
+    public RoundPrompt prompt;
+}
+
+[Serializable]
+public class RoundPrompt
+{
+    public string choices_id;
+    public string outcome_id;
 }
 
 [Serializable]

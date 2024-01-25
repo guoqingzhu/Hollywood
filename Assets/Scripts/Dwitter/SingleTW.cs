@@ -15,7 +15,7 @@ public class SingleTW : MonoBehaviour
     public GameObject share;
     public GameObject like;
 
-    public void initTW(string data)
+    public void initTW(GetCommentData data)
     {
         //tName.GetComponent<TMP_Text>().text = data.name;
 
@@ -26,7 +26,7 @@ public class SingleTW : MonoBehaviour
         //like.GetComponent<TMP_Text>().text = data.likeNum.ToString();
 
         tdate.GetComponent<TMP_Text>().text = getCurDate();
-        textbox.GetComponent<TMP_Text>().text = data;
+        textbox.GetComponent<TMP_Text>().text = data.gpt_news.post;
 
         //
         StartCoroutine(SetTimeout(() =>
