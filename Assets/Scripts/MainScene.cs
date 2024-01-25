@@ -7,8 +7,19 @@ public class MainScene : MonoBehaviour
     public GameObject player;
     public GameObject guide;
     public GameObject mapBtn;
+    public GameObject registNode;
 
     public MainNotification notification;
+
+
+    private void Start()
+    {
+        //var hasRegist = PlayerPrefs.GetInt("hasRegist");
+        //if (hasRegist == 1)
+        //{
+        //    registNode.SetActive(false);
+        //}
+    }
 
     public void onClickDwitter()
     {
