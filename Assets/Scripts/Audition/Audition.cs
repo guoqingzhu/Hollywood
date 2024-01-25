@@ -9,8 +9,34 @@ public class Audition : MonoBehaviour
     public GameObject onSiteDes;
     public GameObject btns;
 
+    public GameObject filmListItem;
+    public GameObject itemParent;
+
+    public FilmListType filmList;
+
     public void Start()
     {
+        // 获取列表
+        var loading = UIManger.GetInstance().showLoading(transform);
+        var data = new GetFilmListReq();
+        data.actor_num = 13;
+        string postData = JsonUtility.ToJson(data);
+        string uri = NetManger.devpath + NetManger.getFilmList + "?actor_num=13";
+        StartCoroutine(NetManger.GetInstance().GetRequest(uri, (resonse) =>
+        {
+            Destroy(loading);
+            filmList = JsonUtility.FromJson<FilmListType>(resonse);
+            var list = filmList.data.list;
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                var item = Instantiate(filmListItem, itemParent.transform);
+                item.GetComponent<movieItem>().Init(list[i]);
+            }
+
+        }, (error) => { }));
+
+
         EventManger.GetInstance().AddEventListener("ShowAuditionType", (EventData data) =>
         {
             mainNode.SetActive(false);

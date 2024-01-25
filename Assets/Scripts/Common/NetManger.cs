@@ -13,6 +13,7 @@ public class NetManger : MonoBehaviour
     public static string startGame = "hollywood/members/start-or-nextround";
     public static string getResult = "hollywood/members/outcome";
     public static string getComment = "hollywood/members/outcome-news";
+    public static string getFilmList = "hollywood/screenplays";
 
     private static NetManger _instance;
 
