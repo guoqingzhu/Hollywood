@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class ChatBox : MonoBehaviour
 {
+    public TextMeshProUGUI actorName;
     public TextMeshProUGUI context;
     public GameObject nextBtn;
+
+
     private bool hasSetFinish = false;
     private int curIndex = 1;
 
@@ -30,8 +33,9 @@ public class ChatBox : MonoBehaviour
        }, 0.01f));
     }
 
-    public void InitChatBox(string msg, CallBack cb = null)
+    public void InitChatBox(string name, string msg, CallBack cb = null)
     {
+        actorName.text = name;
         context.text = msg;
         if (cb != null) callBack = cb;
         StartCoroutine(

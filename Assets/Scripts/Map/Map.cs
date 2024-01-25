@@ -30,7 +30,7 @@ public class Map : MonoBehaviour
     {
         if (Utils.IsGuide())
         {
-            UIManger.GetInstance().showChatBox(transform, "Let's go into the studio");
+            UIManger.GetInstance().showChatBox(transform, "Noah", "Let's go into the studio");
         }
     }
 
