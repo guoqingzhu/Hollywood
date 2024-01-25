@@ -9,6 +9,12 @@ public class PhoneCall : MonoBehaviour
     public void OnClickDrop()
     {
         Destroy(gameObject);
+        if (Utils.GetInstance().hasGetGuideCall == false)
+        {
+            // 没讲完就挂电话
+            var guideNode = transform.parent.Find("Guide");
+            guideNode.GetComponent<Guide>().ShowGuidePhoneCall();
+        }
     }
 
     public void OnClickMute() { }
@@ -119,6 +125,7 @@ public class PhoneCall : MonoBehaviour
             UIManger.GetInstance().showChatBox(transform, "Noah", "Fantastic! I'll get things moving and keep you in the loop. Here's to turning yesterday's chaos into the beginning of something great! How about we get you into the studio ASAP? Strike while the iron's hot, right? I'll send you all the details. Get ready for lights, camera, and your Hollywood moment!", () =>
             {
                 //finish
+                Utils.GetInstance().hasGetGuideCall = true;
                 this.OnClickDrop();
             });
         });
@@ -140,6 +147,7 @@ public class PhoneCall : MonoBehaviour
                             UIManger.GetInstance().showChatBox(transform, "Noah", "Great! I'll be here whenever you're ready. Let's turn the unexpected into something extraordinary. How about we get you into the studio ASAP? Strike while the iron's hot, right? I'll send you all the details. Get ready for lights, camera, and your Hollywood moment!", () =>
                             {
                                 // finish
+                                Utils.GetInstance().hasGetGuideCall = true;
                                 this.OnClickDrop();
                             });
 

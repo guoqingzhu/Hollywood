@@ -10,8 +10,12 @@ public class Guide : MonoBehaviour
     {
         if (Utils.GetInstance().hasGetGuideCall == false)
         {
-            Utils.GetInstance().hasGetGuideCall = true;
             mainNotification.InitPhoneNoti();
         }
+    }
+
+    public void ShowGuidePhoneCall()
+    {
+        mainNotification.InitPhoneNoti();
     }
 }
