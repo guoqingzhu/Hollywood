@@ -14,11 +14,12 @@ public class MainScene : MonoBehaviour
 
     private void Start()
     {
-        //var hasRegist = PlayerPrefs.GetInt("hasRegist");
-        //if (hasRegist == 1)
-        //{
-        //    registNode.SetActive(false);
-        //}
+        //用于确保已经登记过信息
+        var hasRegist = PlayerPrefs.GetInt("hasRegist");
+        if (hasRegist == 1)
+        {
+            registNode.SetActive(false);
+        }
     }
 
     public void onClickDwitter()
