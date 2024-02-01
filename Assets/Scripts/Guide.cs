@@ -22,6 +22,14 @@ public class Guide : MonoBehaviour
     public void ShowMesageNotifi()
     {
         mainNotification.InitMessageTip(() => {
+            UIManger.GetInstance().ShowMapScene(transform.parent);
+        });
+    }
+
+
+    public void ShowMesageShootingNotifi()
+    {
+        mainNotification.InitMessageTip(() => {
             UIManger.GetInstance().ShowShootingScene(transform.parent);
         });
     }

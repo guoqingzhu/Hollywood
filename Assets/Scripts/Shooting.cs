@@ -34,6 +34,7 @@ public class Shooting : MonoBehaviour
         string uri = NetManger.devpath + NetManger.startGame;
         StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (resonse) =>
         {
+            //Debug.Log(resonse);
             Destroy(loading);
             gameData = JsonUtility.FromJson<StartGameType>(resonse);
             string theme = gameData.data.event_theme;
@@ -65,7 +66,7 @@ public class Shooting : MonoBehaviour
     }
 
     /// <summary>
-    /// ��ʾ�����������Ҫ��ǰ��ǰ�������������
+    /// 显示结果
     /// </summary>
     /// <param name="info"></param>
     void ShowFinal(string info)

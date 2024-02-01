@@ -46,7 +46,10 @@ public class Audition : MonoBehaviour
 
     public void OnClickMainBack()
     {
-        Destroy(gameObject);
+        // 返回主界面后显示一条通知
+        var guideNode = transform.parent.parent.Find("Guide");
+        guideNode.GetComponent<Guide>().ShowMesageShootingNotifi();
+        Destroy(transform.parent.gameObject);
     }
 
     public void OnClickRemoteType() { }
