@@ -16,8 +16,9 @@ public class MainNotification : MonoBehaviour
         Instantiate(phoneTip, notiContent.transform);
     }
 
-    public void InitMessageTip()
+    public void InitMessageTip(System.Action func)
     {
-        Instantiate(messageTip, notiContent.transform);
+      var messageNode = Instantiate(messageTip, notiContent.transform);
+      messageNode.GetComponent<MainSceneNotiBox>().InitMessageNoti(func);
     }
 }

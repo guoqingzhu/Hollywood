@@ -12,6 +12,9 @@ public class MainSceneNotiBox : MonoBehaviour
 
     public GameObject phoneCallPage;
 
+    public System.Action messageFunc = null;
+
+
     public void OnClickPhone()
     {
         Destroy(gameObject);
@@ -20,6 +23,11 @@ public class MainSceneNotiBox : MonoBehaviour
 
     public void OnClickMessage()
     {
+        if (messageFunc != null) messageFunc();
         Destroy(gameObject);
+    }
+
+    public void InitMessageNoti(System.Action func) {
+        messageFunc = func;
     }
 }

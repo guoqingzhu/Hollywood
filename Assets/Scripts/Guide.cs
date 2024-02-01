@@ -18,4 +18,14 @@ public class Guide : MonoBehaviour
     {
         mainNotification.InitPhoneNoti();
     }
+
+    public void ShowMesageNotifi()
+    {
+        mainNotification.InitMessageTip(() => {
+            UIManger.GetInstance().ShowShootingScene(transform.parent);
+        });
+    }
+
 }
+
+

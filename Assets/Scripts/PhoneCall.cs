@@ -15,6 +15,10 @@ public class PhoneCall : MonoBehaviour
             var guideNode = transform.parent.Find("Guide");
             guideNode.GetComponent<Guide>().ShowGuidePhoneCall();
         }
+        else {
+            var guideNode = transform.parent.Find("Guide");
+            guideNode.GetComponent<Guide>().ShowMesageNotifi();
+        }
     }
 
     public void OnClickMute() { }
