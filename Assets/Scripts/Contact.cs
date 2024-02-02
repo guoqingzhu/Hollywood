@@ -1,12 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Contact : MonoBehaviour
 {
 
+
+    public TMP_Text title;
+
     public GameObject oneFriend;
-    public GameObject content;
+    public GameObject oneMessage;
+
+    public GameObject contactConent;
+    public GameObject messageContent;
+
+    public GameObject contactBtn;
+    public GameObject messageBtn;
+
+    public GameObject contactNode;
+    public GameObject messageNode;
+
 
     private string contactPath = "Data/contact";
 
@@ -15,17 +29,45 @@ public class Contact : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //load from csv
+    public void OnClickContact()
+    {
+        contactBtn.transform.GetChild(0).gameObject.SetActive(false);
+        contactBtn.transform.GetChild(1).gameObject.SetActive(true);
+        messageBtn.transform.GetChild(0).gameObject.SetActive(true);
+        messageBtn.transform.GetChild(1).gameObject.SetActive(false);
+        title.text = "Contact";
+        contactNode.SetActive(true);
+        messageNode.SetActive(false);
+    }
+
+    public void OnClickMessage()
+    {
+        messageBtn.transform.GetChild(0).gameObject.SetActive(false);
+        messageBtn.transform.GetChild(1).gameObject.SetActive(true);
+        contactBtn.transform.GetChild(0).gameObject.SetActive(true);
+        contactBtn.transform.GetChild(1).gameObject.SetActive(false);
+        title.text = "Message";
+        contactNode.SetActive(false);
+        messageNode.SetActive(true);
+    }
+
+
     public void Start()
     {
+        //load from csv
+        OnClickContact();
         List<string> data = readCSV.readFile(contactPath);
         for (int i = 1; i < data.Count; i++)
         {
-            var one = Instantiate(oneFriend, content.transform);
+            var one = Instantiate(oneFriend, contactConent.transform);
             var friendName = data[i].Split(",")[0];
             var friendLevel = data[i].Split(",")[1];
             one.GetComponent<OneFriend>().InitFriend(friendName);
         }
+        //创建一个消息
+        var onem = Instantiate(oneMessage, messageContent.transform);
+        onem.GetComponent<OneMessage>().InitMessage("Noah","Hi Spencer!");
+
     }
 
 }

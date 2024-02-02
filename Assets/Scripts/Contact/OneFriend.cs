@@ -8,15 +8,15 @@ public class OneFriend : MonoBehaviour
     public TMP_Text nameText;
 
     public void OnClickPhone() {
-        Debug.Log("phone");
+        //Debug.Log("phone");
     }
 
     public void OnClickMessage() {
-        Debug.Log("Message");
+        //Debug.Log("Message");
     }
 
     public void OnClickInvite() {
-        Debug.Log("Invite");
+        //Debug.Log("Invite");
     }
 
     public void InitFriend(string name) {

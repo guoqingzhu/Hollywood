@@ -21,7 +21,7 @@ public class DWUpperNoti : MonoBehaviour
     public void  InitPhoneUpperNotifi(string title,string content,System.Action func) {
         titleText.text = title;
         contentText.text = content;
-        timeText.text = DateTime.Now.ToString();
+        timeText.text = DateTime.Now.ToShortTimeString();
         clickFunc = func;
     }
 
