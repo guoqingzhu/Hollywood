@@ -56,7 +56,16 @@ public class DwitterScene : MonoBehaviour
             Debug.Log(commentData.data.gpt_news.post);
             one.GetComponent<SingleTW>().initTW(commentData.data);
 
+
+            UIManger.GetInstance().ShowUpperNotifi(transform, "You recive a message", "Click to open", () =>
+            {
+                Destroy(transform.parent.gameObject);
+                UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
+            });
+
+
         }, (error) => { }));
+        ///
     }
 
     private void Update()

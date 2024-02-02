@@ -17,6 +17,7 @@ public class UIManger : MonoBehaviour
     private string chooseBoxName = "ChooseBox";
     private string actChatBoxName = "ActChatBox";
     private string loading = "Loading";
+    private string upperNotifi = "DWUpperNoti";
 
     private string shootingScene = "Scene/shootingScene";
     private string auditionScene = "Scene/auditionScene";
@@ -95,6 +96,26 @@ public class UIManger : MonoBehaviour
         var box = Instantiate(gameObject, parent);
         return box;
     }
+
+
+
+    /// <summary>
+    /// ÏÔÊ¾dwÍ¨Öª
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <param name="title"></param>
+    /// <param name="content"></param>
+    /// <param name="func"></param>
+    /// <returns></returns>
+    public GameObject ShowUpperNotifi(Transform parent, string title, string content, System.Action func)
+    {
+        var gameObject = LoadGameObject(upperNotifi);
+        var box = Instantiate(gameObject, parent);
+        var sc = box.GetComponent<DWUpperNoti>();
+        sc.InitPhoneUpperNotifi(title, content, func);
+        return box;
+    }
+
 
     public GameObject ShowShootingScene(Transform parent)
     {
