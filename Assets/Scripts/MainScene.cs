@@ -14,6 +14,9 @@ public class MainScene : MonoBehaviour
 
     private void Start()
     {
+
+        //PlayerPrefs.DeleteAll();
+
         //用于确保已经登记过信息
         var hasRegist = PlayerPrefs.GetInt("hasRegist");
         if (hasRegist == 1)
