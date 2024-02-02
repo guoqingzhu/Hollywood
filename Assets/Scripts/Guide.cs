@@ -5,18 +5,23 @@ using UnityEngine;
 public class Guide : MonoBehaviour
 {
     public MainNotification mainNotification;
+    public GameObject phoneCallPage;
 
     public void Start()
     {
         if (Utils.GetInstance().hasGetGuideCall == false)
         {
-            mainNotification.InitPhoneNoti();
+            mainNotification.InitPhoneNoti(() => { 
+              Instantiate(phoneCallPage, GameObject.FindWithTag("MainPage").transform);
+            });
         }
     }
 
     public void ShowGuidePhoneCall()
     {
-        mainNotification.InitPhoneNoti();
+        mainNotification.InitPhoneNoti(() => {
+            Instantiate(phoneCallPage, GameObject.FindWithTag("MainPage").transform);
+        });
     }
 
     public void ShowMesageNotifi()

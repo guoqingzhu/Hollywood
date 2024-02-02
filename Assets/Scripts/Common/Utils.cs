@@ -20,6 +20,8 @@ public class Utils : MonoBehaviour
     /// </summary>
     public bool hasGetGuideCall = false;
 
+    public bool hasShowMapGuide = false;
+
 
     public static System.Collections.IEnumerator SetTimeout(System.Action action, float delay)
     {

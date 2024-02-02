@@ -8,4 +8,10 @@ public class Contact : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void Start()
+    {
+        //GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => { });
+    }
+
 }

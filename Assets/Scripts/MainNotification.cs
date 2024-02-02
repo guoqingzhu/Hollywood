@@ -11,14 +11,26 @@ public class MainNotification : MonoBehaviour
     public GameObject phoneTip;
     public GameObject messageTip;
 
-    public void InitPhoneNoti()
+    public void InitPhoneNoti(System.Action func)
     {
-        Instantiate(phoneTip, notiContent.transform);
+        var phoneNode = Instantiate(phoneTip, notiContent.transform);
+        phoneNode.GetComponent<MainSceneNotiBox>().InitPhoneCallNoti(func);
+
     }
 
     public void InitMessageTip(System.Action func)
     {
-      var messageNode = Instantiate(messageTip, notiContent.transform);
-      messageNode.GetComponent<MainSceneNotiBox>().InitMessageNoti(func);
+        var messageNode = Instantiate(messageTip, notiContent.transform);
+        messageNode.GetComponent<MainSceneNotiBox>().InitMessageNoti(func);
     }
+
+    public void ClearAllNotification()
+    {
+
+        foreach (Transform child in notiContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
 }

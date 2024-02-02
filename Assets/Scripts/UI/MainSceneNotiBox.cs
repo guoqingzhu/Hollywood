@@ -10,7 +10,7 @@ using UnityEngine;
 public class MainSceneNotiBox : MonoBehaviour
 {
 
-    public GameObject phoneCallPage;
+
 
     public System.Action messageFunc = null;
     public System.Action phoneCallFunc = null;
@@ -20,7 +20,6 @@ public class MainSceneNotiBox : MonoBehaviour
     {
         if (phoneCallFunc != null) phoneCallFunc();
         Destroy(gameObject);
-        Instantiate(phoneCallPage, GameObject.FindWithTag("MainPage").transform);
     }
 
     public void OnClickMessage()

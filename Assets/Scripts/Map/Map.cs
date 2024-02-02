@@ -28,8 +28,9 @@ public class Map : MonoBehaviour
 
     public void Start()
     {
-        if (Utils.IsGuide())
+        if (Utils.IsGuide() && !Utils.GetInstance().hasShowMapGuide)
         {
+            Utils.GetInstance().hasShowMapGuide = true;
             UIManger.GetInstance().showChatBox(transform, "Noah", "Let's go into the studio");
         }
     }

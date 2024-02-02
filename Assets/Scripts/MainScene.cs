@@ -50,4 +50,28 @@ public class MainScene : MonoBehaviour
         UIManger.GetInstance().ShowMapScene(transform);
     }
 
+
+    /// <summary>
+    /// 全局UI通知
+    ///  GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => { });
+    /// </summary>
+    /// <param name="func"></param>
+    public void ShowPhoneCallNotifi(System.Action func)
+    {
+        notification.ClearAllNotification();
+        notification.transform.SetSiblingIndex(999);
+        notification.InitPhoneNoti(func);
+    }
+
+    /// <summary>
+    ///  GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => { });
+    /// </summary>
+    /// <param name="func"></param>
+    public void ShowMessageNotifi(System.Action func)
+    {
+        notification.ClearAllNotification();
+        notification.transform.SetSiblingIndex(999);
+        notification.InitMessageTip(func);
+    }
+
 }
