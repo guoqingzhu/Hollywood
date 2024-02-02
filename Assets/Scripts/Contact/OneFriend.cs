@@ -7,9 +7,20 @@ public class OneFriend : MonoBehaviour
 {
     public TMP_Text nameText;
 
-    public void OnClickPhone() { }
+    public void OnClickPhone() {
+        Debug.Log("phone");
+    }
 
-    public void OnClickMessage() { }
+    public void OnClickMessage() {
+        Debug.Log("Message");
+    }
 
-    public void OnClickInvite() { }
+    public void OnClickInvite() {
+        Debug.Log("Invite");
+    }
+
+    public void InitFriend(string name) {
+        nameText.text = name;
+    }
+
 }
