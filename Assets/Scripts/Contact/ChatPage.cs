@@ -20,7 +20,7 @@ public class ChatPage : MonoBehaviour
     public void SetOptions(string[] options)
     {
         myOptions = options;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < options.Length; i++)
         {
             optionsNode.transform.GetChild(i).GetComponentInChildren<TMP_Text>().text = options[i];
         }
@@ -31,27 +31,17 @@ public class ChatPage : MonoBehaviour
         OnClickSend(myOptions[0]);
     }
 
-    public void onClickOptionB()
-    {
-        OnClickSend(myOptions[1]);
-    }
+    //private void Start()
+    //{
+    //    string[] options = new string[3];
+    //    options[0] = "Thank you";
+    //    options[1] = "i love you";
+    //    options[2] = "bye bye";
+    //    this.SetOptions(options);
 
-    public void onClickOptionC()
-    {
-        OnClickSend(myOptions[2]);
-    }
-
-    private void Start()
-    {
-        string[] options = new string[3];
-        options[0] = "Thank you";
-        options[1] = "i love you";
-        options[2] = "bye bye";
-        this.SetOptions(options);
-
-        GetMessage("this is mia`s phone number");
-        GetMessage("bye bye!");
-    }
+    //    GetMessage("this is mia`s phone number");
+    //    GetMessage("bye bye!");
+    //}
 
     public void GetMessage(string text)
     {
