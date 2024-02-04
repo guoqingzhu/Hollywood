@@ -52,22 +52,20 @@ public class DwitterScene : MonoBehaviour
             Destroy(loading);
             GetCommentType commentData = JsonUtility.FromJson<GetCommentType>(resonse);
             var one = Instantiate(oneComment, foryouContent.transform);
-            Debug.Log(resonse);
-            Debug.Log(commentData.data.gpt_news.post);
             one.GetComponent<SingleTW>().initTW(commentData.data);
-
-
-
         }, (error) => { }));
         ///
 
+    }
 
-        //UIManger.GetInstance().ShowUpperNotifi(transform, "You recive a message", "Click to open", () =>
-        //{
-        //    Destroy(transform.parent.gameObject);
-        //    UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
-        //});
-
+    public void ShowUpperNoti(System.Action func)
+    {
+        UIManger.GetInstance().ShowUpperNotifi(transform, "You recive a message", "Click to open", () =>
+        {
+            Destroy(transform.parent.gameObject);
+            func();
+            //UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
+        });
     }
 
     private void Update()
