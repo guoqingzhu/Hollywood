@@ -77,26 +77,6 @@ public class Audition : MonoBehaviour
 
     }
 
-    //void showOneDialog(int index)
-    //{
-    //    curIndex = index;
-    //    var curDialog = allDialogs[curIndex];
-    //    var curName = curDialog.Split(':')[0];
-    //    var dialog = curDialog.Split(':')[1];
-    //    UIManger.GetInstance().showActChatBox(transform, curName, dialog, () =>
-    //    {
-    //        if (curIndex < allDialogs.Length - 1)
-    //        {
-    //            showOneDialog(curIndex += 1);
-    //        }
-    //        else
-    //        {
-    //            ShowOptions();
-    //        }
-    //    });
-    //}
-
-
 
     public void OnClickMainBack()
     {

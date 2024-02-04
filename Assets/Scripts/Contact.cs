@@ -23,11 +23,7 @@ public class Contact : MonoBehaviour
 
 
     private string contactPath = "Data/contact";
-
     private string dialogPath = "Data/mia";
-    private int curDialigIndex = 1;
-    private List<string> dialogs;
-
 
     public void OnClickBack()
     {
