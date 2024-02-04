@@ -18,7 +18,6 @@ public class movieItem : MonoBehaviour
 
     public void OnClickChoose()
     {
-        Debug.Log("onclick choose");
         var filDetail = Instantiate(filmDetail, transform.parent.parent.parent.parent.transform);
         filDetail.GetComponent<movieDetail>().Init(curData);
     }

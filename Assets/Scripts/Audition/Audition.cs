@@ -9,10 +9,16 @@ public class Audition : MonoBehaviour
     public GameObject onSiteDes;
     public GameObject btns;
 
+    public GameObject dialogBg;
     public GameObject filmListItem;
     public GameObject itemParent;
 
     public FilmListType filmList;
+
+    private string dialogPath = "Data/skipDialogs";
+    private int curDialigIndex = 1;
+    private List<string> dialogs;
+
 
     public void Start()
     {
@@ -41,8 +47,56 @@ public class Audition : MonoBehaviour
         {
             mainNode.SetActive(false);
             typeNode.SetActive(true);
+            //
+            Debug.Log("add dialogs");
+            ShowGuide();
         }, null);
+
+        dialogs = readCSV.readFile(dialogPath);
+
     }
+
+    public void ShowGuide()
+    {
+        dialogBg.SetActive(true);
+        var name = dialogs[curDialigIndex].Split(",")[0];
+        var dialog = dialogs[curDialigIndex].Split(",")[1];
+        dialog = dialog.Replace("£¬", ",");
+        UIManger.GetInstance().showActChatBox(transform, name, dialog, () =>
+        {
+            if (curDialigIndex < dialogs.Count - 1)
+            {
+                curDialigIndex += 1;
+                ShowGuide();
+            }
+            else
+            {
+                dialogBg.SetActive(false);
+            }
+        });
+
+    }
+
+    //void showOneDialog(int index)
+    //{
+    //    curIndex = index;
+    //    var curDialog = allDialogs[curIndex];
+    //    var curName = curDialog.Split(':')[0];
+    //    var dialog = curDialog.Split(':')[1];
+    //    UIManger.GetInstance().showActChatBox(transform, curName, dialog, () =>
+    //    {
+    //        if (curIndex < allDialogs.Length - 1)
+    //        {
+    //            showOneDialog(curIndex += 1);
+    //        }
+    //        else
+    //        {
+    //            ShowOptions();
+    //        }
+    //    });
+    //}
+
+
 
     public void OnClickMainBack()
     {
