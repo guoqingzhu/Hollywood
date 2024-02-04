@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,13 @@ public class ChatPage : MonoBehaviour
 
     private string[] myOptions;
 
+
+    private string dialogPath = "Data/mia";
+    private int curDialigIndex = 1;
+    private List<string> dialogs;
+    private string curLong = "";
+
+
     public void OnClickBack()
     {
         Destroy(gameObject);
@@ -22,30 +30,45 @@ public class ChatPage : MonoBehaviour
         myOptions = options;
         for (int i = 0; i < options.Length; i++)
         {
-            optionsNode.transform.GetChild(i).GetComponentInChildren<TMP_Text>().text = options[i];
+            var tt = options[i].Replace("£¬", ",");
+            optionsNode.transform.GetChild(i).GetComponentInChildren<TMP_Text>().text = tt;
         }
     }
 
     public void onClickOptionA()
     {
-        OnClickSend(myOptions[0]);
+        if (curDialigIndex < dialogs.Count - 1)
+        {
+            OnClickSend(curLong);
+            curDialigIndex += 1;
+            PlayOne();
+        }
     }
 
-    //private void Start()
-    //{
-    //    string[] options = new string[3];
-    //    options[0] = "Thank you";
-    //    options[1] = "i love you";
-    //    options[2] = "bye bye";
-    //    this.SetOptions(options);
+    private void Start()
+    {
+        dialogs = readCSV.readFile(dialogPath);
+        PlayOne();
+    }
 
-    //    GetMessage("this is mia`s phone number");
-    //    GetMessage("bye bye!");
-    //}
+    private void PlayOne()
+    {
+        var dialog = dialogs[curDialigIndex].Split(",")[1];
+        GetMessage(dialog);
+        string[] options = new string[1];
+        if (curDialigIndex + 1 < dialogs.Count - 1)
+        {
+            curLong = dialogs[curDialigIndex + 1].Split(",")[1];
+            var shortStr = dialogs[curDialigIndex += 1].Split(",")[2];
+            options[0] = shortStr;
+            SetOptions(options);
+        }
+    }
 
     public void GetMessage(string text)
     {
         if (text == null || text == "") return;
+        text = text.Replace("£¬", ",");
         GameObject one = Instantiate(chatItem, contant.transform);
         one.GetComponent<DWChatItem>().initContent(text);
         //
@@ -58,15 +81,15 @@ public class ChatPage : MonoBehaviour
         var height = one.GetComponent<DWChatItem>().content.GetComponent<RectTransform>().rect.height;
         var width = one.GetComponent<DWChatItem>().content.GetComponent<RectTransform>().rect.width;
 
-        if (width > 500)
+        if (width > 600)
         {
-            width = 450;
+            width = 550;
             var content = one.GetComponent<DWChatItem>().content;
             content.GetComponent<ContentSizeFitter>().horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-            content.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 0);
+            content.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 0);
             LayoutRebuilder.ForceRebuildLayoutImmediate(content.rectTransform);
             height = one.GetComponent<DWChatItem>().content.GetComponent<RectTransform>().rect.height;
-            one.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(500, height + 50);
+            one.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(620, height + 50);
             one.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height + 50);
 
         }
@@ -82,6 +105,7 @@ public class ChatPage : MonoBehaviour
     public void OnClickSend(string text)
     {
         if (text == null || text == "") return;
+        text = text.Replace("£¬", ",");
         GameObject one = Instantiate(chatItem, contant.transform);
         one.GetComponent<DWChatItem>().initContent(text);
         Color color;
@@ -97,15 +121,15 @@ public class ChatPage : MonoBehaviour
         var height = one.GetComponent<DWChatItem>().content.GetComponent<RectTransform>().rect.height;
         var width = one.GetComponent<DWChatItem>().content.GetComponent<RectTransform>().rect.width;
 
-        if (width > 500)
+        if (width > 600)
         {
-            width = 450;
+            width = 550;
             var content = one.GetComponent<DWChatItem>().content;
             content.GetComponent<ContentSizeFitter>().horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-            content.GetComponent<RectTransform>().sizeDelta = new Vector2(500, 0);
+            content.GetComponent<RectTransform>().sizeDelta = new Vector2(600, 0);
             LayoutRebuilder.ForceRebuildLayoutImmediate(content.rectTransform);
             height = one.GetComponent<DWChatItem>().content.GetComponent<RectTransform>().rect.height;
-            one.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(500, height + 50);
+            one.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(620, height + 50);
             one.transform.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height + 50);
 
         }
