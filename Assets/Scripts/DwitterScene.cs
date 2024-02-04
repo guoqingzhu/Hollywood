@@ -57,15 +57,17 @@ public class DwitterScene : MonoBehaviour
             one.GetComponent<SingleTW>().initTW(commentData.data);
 
 
-            UIManger.GetInstance().ShowUpperNotifi(transform, "You recive a message", "Click to open", () =>
-            {
-                Destroy(transform.parent.gameObject);
-                UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
-            });
-
 
         }, (error) => { }));
         ///
+
+
+        //UIManger.GetInstance().ShowUpperNotifi(transform, "You recive a message", "Click to open", () =>
+        //{
+        //    Destroy(transform.parent.gameObject);
+        //    UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
+        //});
+
     }
 
     private void Update()

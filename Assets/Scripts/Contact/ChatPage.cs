@@ -51,13 +51,11 @@ public class ChatPage : MonoBehaviour
 
         GetMessage("this is mia`s phone number");
         GetMessage("bye bye!");
-
     }
 
     public void GetMessage(string text)
     {
         if (text == null || text == "") return;
-        Debug.Log("get message");
         GameObject one = Instantiate(chatItem, contant.transform);
         one.GetComponent<DWChatItem>().initContent(text);
         //
