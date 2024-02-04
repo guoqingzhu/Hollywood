@@ -9,6 +9,8 @@ public class OneMessage : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text timeText;
     public TMP_Text contextText;
+    public GameObject chatPage;
+
 
     public void InitMessage(string name,string context) {
         nameText.text = name;
@@ -16,6 +18,8 @@ public class OneMessage : MonoBehaviour
         timeText.text = DateTime.Now.ToShortTimeString();
     }
 
-    public void OnClick() { }
+    public void OnClick() { 
+        var chatNode = Instantiate(chatPage, GameObject.Find("contactScene(Clone)").transform);
+    }
 
 }

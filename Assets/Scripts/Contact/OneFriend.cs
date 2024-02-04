@@ -6,6 +6,8 @@ using UnityEngine;
 public class OneFriend : MonoBehaviour
 {
     public TMP_Text nameText;
+    public GameObject chatPage;
+
 
     public void OnClickPhone() {
         //Debug.Log("phone");
@@ -13,6 +15,7 @@ public class OneFriend : MonoBehaviour
 
     public void OnClickMessage() {
         //Debug.Log("Message");
+        var chatNode = Instantiate(chatPage, GameObject.Find("contactScene(Clone)").transform);
     }
 
     public void OnClickInvite() {

@@ -813,3 +813,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 8011665875290969486}
+  chatPage: {fileID: 6866757295816614841, guid: 49f300182c415444db545d81271865de, type: 3}
