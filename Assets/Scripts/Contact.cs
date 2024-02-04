@@ -24,6 +24,11 @@ public class Contact : MonoBehaviour
 
     private string contactPath = "Data/contact";
 
+    private string dialogPath = "Data/mia";
+    private int curDialigIndex = 1;
+    private List<string> dialogs;
+
+
     public void OnClickBack()
     {
         Destroy(gameObject);
@@ -65,8 +70,12 @@ public class Contact : MonoBehaviour
             one.GetComponent<OneFriend>().InitFriend(friendName);
         }
         //创建一个消息
+        List<string> dialogData = readCSV.readFile(dialogPath);
+        var name = dialogData[1].Split(",")[0];
+        var dialog = dialogData[1].Split(",")[1];
+        dialog = dialog.Replace("，",",");
         var onem = Instantiate(oneMessage, messageContent.transform);
-        onem.GetComponent<OneMessage>().InitMessage("Noah","Hi Spencer!");
+        onem.GetComponent<OneMessage>().InitMessage(name,dialog);
 
     }
 
