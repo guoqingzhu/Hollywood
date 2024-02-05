@@ -14,7 +14,10 @@ public class Map : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void onClickCafe() { }
+    public void onClickCafe()
+    {
+        UIManger.GetInstance().ShowCafeScene(transform);
+    }
 
     public void onClickStudio()
     {

@@ -20,6 +20,7 @@ public class movieItem : MonoBehaviour
     {
         var filDetail = Instantiate(filmDetail, transform.parent.parent.parent.parent.transform);
         filDetail.GetComponent<movieDetail>().Init(curData);
+        Utils.GetInstance().eventName = filmName.text;
     }
 
     public void Init(FilmData data)

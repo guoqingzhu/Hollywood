@@ -14,6 +14,7 @@ public class NetManger : MonoBehaviour
     public static string getResult = "hollywood/members/outcome";
     public static string getComment = "hollywood/members/outcome-news";
     public static string getFilmList = "hollywood/screenplays";
+    public static string addUser = "hollywood/members/enter";
 
     private static NetManger _instance;
 
