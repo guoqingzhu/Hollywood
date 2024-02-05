@@ -81,6 +81,10 @@ public class UIManger : MonoBehaviour
 
     public GameObject showActChatBox(Transform parent, string actName, string msg, ActChatBox.CallBack cb = null)
     {
+        if (actName == "Player" || actName == "player") {
+            actName = Utils.playerName;
+        }
+        msg = msg.Replace("£¬",",");
         var gameObject = LoadGameObject(actChatBoxName);
         var box = Instantiate(gameObject, parent);
         //Texture2D actImage = Resources.Load<Texture2D>(actoriginPath + actName);
