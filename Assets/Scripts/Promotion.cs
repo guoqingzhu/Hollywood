@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -8,6 +9,10 @@ public class Promotion : MonoBehaviour
 
 
     public GameObject mainNode;
+
+    public GameObject director;
+    public GameObject filmcast;
+    public GameObject myRole;
 
     private string dialogPath = "Data/badMia";
     private int curDialigIndex = 1;
@@ -45,6 +50,11 @@ public class Promotion : MonoBehaviour
             optionB = gameData.data.gpt_options.b;
             optionC = gameData.data.gpt_options.c;
             optionD = gameData.data.gpt_options.d;
+
+            director.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("director");
+            filmcast.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("filmCast");
+            myRole.GetComponent<TMP_Text>().text = "SUPPORTING";
+
         }, (error) => { }));
     }
 
