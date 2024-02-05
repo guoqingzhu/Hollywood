@@ -12,14 +12,27 @@ public class OneMessage : MonoBehaviour
     public GameObject chatPage;
 
 
-    public void InitMessage(string name,string context) {
+    private string chatName;
+
+    public void InitMessage(string name, string context)
+    {
+        chatName = name;
         nameText.text = name;
         contextText.text = context;
         timeText.text = DateTime.Now.ToShortTimeString();
     }
 
-    public void OnClick() { 
+    public void OnClick()
+    {
         var chatNode = Instantiate(chatPage, GameObject.Find("contactScene(Clone)").transform);
+        if (chatName == "Noah")
+        {
+            chatNode.GetComponent<ChatPage>().PlayOne();
+        }
+        else if (chatName == "Mia")
+        {
+            chatNode.GetComponent<ChatPage>().ChatWithMia();
+        }
     }
 
 }

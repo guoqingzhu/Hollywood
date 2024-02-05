@@ -110,6 +110,12 @@ public class Shooting : MonoBehaviour
                 });
             }
 
+            // noah 探班
+            if (Utils.GetInstance().shootingIndex == 4)
+            {
+
+            }
+
         }, (error) =>
         {
             Debug.Log(error);

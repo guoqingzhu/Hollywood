@@ -57,7 +57,7 @@ public class DwitterScene : MonoBehaviour
             one.GetComponent<SingleTW>().initTW(commentData.data);
         }, (error) => { }));
         ///
-        getMessage("mia","hi");
+        //getMessage("mia","hi");
     }
 
     public void showGuideUpper()

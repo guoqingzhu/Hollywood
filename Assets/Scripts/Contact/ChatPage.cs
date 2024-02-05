@@ -37,25 +37,33 @@ public class ChatPage : MonoBehaviour
 
     public void onClickOptionA()
     {
-        if (curDialigIndex < dialogs.Count - 1)
+
+        try
         {
-            OnClickSend(curLong);
-            curDialigIndex += 1;
-            PlayOne();
+
+            if (curDialigIndex < dialogs.Count - 1)
+            {
+                OnClickSend(curLong);
+                curDialigIndex += 1;
+                PlayOne();
+            }
+            else
+            {
+                Utils.GetInstance().isLibraryLock = false;
+            }
         }
-        else {
-            Utils.GetInstance().isLibraryLock = false;
+        catch (System.Exception)
+        {
+            OnClickSend(myOptions[0]);
+            throw;
         }
+
     }
 
-    private void Start()
+
+    public void PlayOne()
     {
         dialogs = readCSV.readFile(dialogPath);
-        PlayOne();
-    }
-
-    private void PlayOne()
-    {
         var dialog = dialogs[curDialigIndex].Split(",")[1];
         GetMessage(dialog);
         string[] options = new string[1];
@@ -66,6 +74,15 @@ public class ChatPage : MonoBehaviour
             options[0] = shortStr;
             SetOptions(options);
         }
+    }
+
+    public void ChatWithMia()
+    {
+        GetMessage("You should go on shooting!!!");
+        GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => {
+            Destroy(GameObject.Find("contactScene(Clone)"));
+            UIManger.GetInstance().ShowShootingScene(GameObject.Find("Canvas").transform);
+        },"Go on Shooting");
     }
 
     public void GetMessage(string text)
