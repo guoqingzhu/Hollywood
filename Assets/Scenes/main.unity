@@ -252,6 +252,11 @@ MonoBehaviour:
   mapBtn: {fileID: 341819390}
   registNode: {fileID: 1180974745}
   notification: {fileID: 1539463513}
+  mapBtnNode: {fileID: 341819390}
+  contactBtnNode: {fileID: 2090495806}
+  dwBtnNode: {fileID: 61890011}
+  promotionBtnNode: {fileID: 310497725}
+  shootingBtnNode: {fileID: 880378250}
 --- !u!1 &40418248
 GameObject:
   m_ObjectHideFlags: 0

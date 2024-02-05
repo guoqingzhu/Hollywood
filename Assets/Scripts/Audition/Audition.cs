@@ -83,6 +83,7 @@ public class Audition : MonoBehaviour
         // 返回主界面后显示一条通知
         var guideNode = transform.parent.parent.Find("Guide");
         guideNode.GetComponent<Guide>().ShowMesageShootingNotifi();
+        Utils.GetInstance().shootingLock = false;
         Destroy(transform.parent.gameObject);
     }
 

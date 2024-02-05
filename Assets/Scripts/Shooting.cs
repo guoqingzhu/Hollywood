@@ -63,6 +63,7 @@ public class Shooting : MonoBehaviour
     {
         Destroy(gameObject);
         UIManger.GetInstance().ShowShootingScene(transform.parent);
+        Utils.GetInstance().shootingIndex += 1;
     }
 
     /// <summary>
@@ -84,6 +85,16 @@ public class Shooting : MonoBehaviour
             GetResultType result = JsonUtility.FromJson<GetResultType>(response);
             reaction_text.text = result.data.gpt_outcome.reaction;
             event_progress_text.text = result.data.gpt_outcome.event_progress;
+            //
+            if (Utils.GetInstance().shootingIndex == 1)
+            {
+                GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() =>
+                {
+                    Utils.GetInstance().dwLock = false;
+                    Destroy(gameObject);
+                    UIManger.GetInstance().ShowDwitterScene(GameObject.Find("Canvas").transform);
+                });
+            }
         }, (error) =>
         {
             Debug.Log(error);

@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainScene : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class MainScene : MonoBehaviour
 
     public MainNotification notification;
 
+    public GameObject mapBtnNode;
+    public GameObject contactBtnNode;
+    public GameObject dwBtnNode;
+    public GameObject promotionBtnNode;
+    public GameObject shootingBtnNode;
 
     private void Start()
     {
@@ -23,30 +29,46 @@ public class MainScene : MonoBehaviour
         {
             registNode.SetActive(false);
         }
+       
     }
-  
+
+    private void Update()
+    {
+        // set lock
+        mapBtnNode.GetComponent<Button>().interactable = !Utils.GetInstance().mapLock;
+        contactBtnNode.GetComponent<Button>().interactable = !Utils.GetInstance().contactLock;
+        dwBtnNode.GetComponent<Button>().interactable = !Utils.GetInstance().dwLock;
+        promotionBtnNode.GetComponent<Button>().interactable = !Utils.GetInstance().promotionLock;
+        shootingBtnNode.GetComponent<Button>().interactable = !Utils.GetInstance().shootingLock;
+    }
+
     public void onClickMap()
     {
+        notification.ClearAllNotification();
         UIManger.GetInstance().ShowMapScene(transform);
     }
 
     public void onClickContact()
     {
+        notification.ClearAllNotification();
         UIManger.GetInstance().ShowcontactScene(transform);
     }
 
     public void onClickDwitter()
     {
+        notification.ClearAllNotification();
         UIManger.GetInstance().ShowDwitterScene(transform);
     }
 
     public void onClickPromotion()
     {
+        notification.ClearAllNotification();
         UIManger.GetInstance().ShowPromotionScene(transform);
     }
 
     public void onClickShooting()
     {
+        notification.ClearAllNotification();
         UIManger.GetInstance().ShowShootingScene(transform);
     }
 

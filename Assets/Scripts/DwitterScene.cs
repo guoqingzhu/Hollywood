@@ -53,9 +53,27 @@ public class DwitterScene : MonoBehaviour
             GetCommentType commentData = JsonUtility.FromJson<GetCommentType>(resonse);
             var one = Instantiate(oneComment, foryouContent.transform);
             one.GetComponent<SingleTW>().initTW(commentData.data);
+            //
+            StartCoroutine(WaitTime(1, () =>
+            {
+                ShowUpperNoti(() =>
+                {
+                    Destroy(gameObject);
+                    UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
+                    Utils.GetInstance().contactLock = false;
+                });
+            }));
+            //
         }, (error) => { }));
         ///
 
+    }
+
+
+    IEnumerator WaitTime(float time, System.Action func)
+    {
+        yield return new WaitForSeconds(time);
+        func();
     }
 
     public void ShowUpperNoti(System.Action func)
@@ -64,7 +82,6 @@ public class DwitterScene : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
             func();
-            //UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
         });
     }
 

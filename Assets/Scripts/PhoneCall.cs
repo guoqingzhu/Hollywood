@@ -16,9 +16,11 @@ public class PhoneCall : MonoBehaviour
             guideNode.GetComponent<Guide>().ShowGuidePhoneCall();
         }
         else {
+            // Ω≤ÕÍ¡À
             var guideNode = transform.parent.Find("Guide");
             guideNode.GetComponent<Guide>().ShowMesageNotifi();
             Utils.GetInstance().isStudioLock = false;
+            Utils.GetInstance().mapLock = false;
         }
     }
 
