@@ -15,6 +15,8 @@ public class DwitterScene : MonoBehaviour
     public GameObject foryouBody;
     public GameObject followBody;
 
+    public GameObject messagePrefab;
+    public GameObject messageContent;
     public GameObject submitPage;
     public TMP_InputField postContent;
 
@@ -53,20 +55,29 @@ public class DwitterScene : MonoBehaviour
             GetCommentType commentData = JsonUtility.FromJson<GetCommentType>(resonse);
             var one = Instantiate(oneComment, foryouContent.transform);
             one.GetComponent<SingleTW>().initTW(commentData.data);
-            //
-            StartCoroutine(WaitTime(1, () =>
-            {
-                ShowUpperNoti(() =>
-                {
-                    Destroy(gameObject);
-                    UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
-                    Utils.GetInstance().contactLock = false;
-                });
-            }));
-            //
         }, (error) => { }));
         ///
 
+    }
+
+    public void showGuideUpper()
+    {
+        StartCoroutine(WaitTime(2, () =>
+        {
+            ShowUpperNoti(() =>
+            {
+                Destroy(gameObject);
+                UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
+                Utils.GetInstance().contactLock = false;
+            });
+        }));
+    }
+
+    //收到一条私信
+    public void getMessage(string name, string content)
+    {
+        var node = Instantiate(messagePrefab, messageContent.transform);
+        node.GetComponent<DWMessage>().initNotification(name, content);
     }
 
 

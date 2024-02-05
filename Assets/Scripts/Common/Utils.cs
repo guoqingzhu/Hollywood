@@ -8,6 +8,7 @@ public class Utils : MonoBehaviour
 
     private static Utils _instance;
 
+    public static string playerName = PlayerPrefs.GetString("playerName");
 
     public static Utils GetInstance()
     {
@@ -36,16 +37,16 @@ public class Utils : MonoBehaviour
     }
 
     // mainScene lock
-    public bool mapLock = true;
-    public bool contactLock = true;
-    public bool dwLock = true;
-    public bool promotionLock = true;
-    public bool shootingLock = true;
+    public bool mapLock = false;
+    public bool contactLock = false;
+    public bool dwLock = false;
+    public bool promotionLock = false;
+    public bool shootingLock = false;
 
     // map lock
-    public bool isStudioLock = true;
-    public bool isLibraryLock = true;
-    public bool isCafeLock = true;
+    public bool isStudioLock = false;
+    public bool isLibraryLock = false;
+    public bool isCafeLock = false;
 
     // 记录拍摄轮次，第二轮结尾提示进入dw
     public int shootingIndex = 0;

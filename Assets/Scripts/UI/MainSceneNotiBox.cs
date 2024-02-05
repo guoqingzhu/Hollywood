@@ -10,8 +10,6 @@ using UnityEngine;
 public class MainSceneNotiBox : MonoBehaviour
 {
 
-
-
     public System.Action messageFunc = null;
     public System.Action phoneCallFunc = null;
 

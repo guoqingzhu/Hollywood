@@ -176,5 +176,4 @@ public class UIManger : MonoBehaviour
         var node = Instantiate(gameObject, parent);
         return node;
     }
-
 }

@@ -43,6 +43,9 @@ public class ChatPage : MonoBehaviour
             curDialigIndex += 1;
             PlayOne();
         }
+        else {
+            Utils.GetInstance().isLibraryLock = false;
+        }
     }
 
     private void Start()

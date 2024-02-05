@@ -12,9 +12,10 @@ public class DWMessage : MonoBehaviour
 
     public GameObject chatPage;
 
-    public void initNotification(SingleMessageTip data)
+    public void initNotification(string name, string contentt)
     {
-
+        nameText.GetComponent<TMP_Text>().text = name;
+        content.GetComponent<TMP_Text>().text = contentt;
     }
 
     public void OnClickMessage()

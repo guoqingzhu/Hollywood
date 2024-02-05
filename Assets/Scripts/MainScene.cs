@@ -1,4 +1,5 @@
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,7 +30,7 @@ public class MainScene : MonoBehaviour
         {
             registNode.SetActive(false);
         }
-       
+
     }
 
     private void Update()
@@ -90,11 +91,15 @@ public class MainScene : MonoBehaviour
     ///  GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => { });
     /// </summary>
     /// <param name="func"></param>
-    public void ShowMessageNotifi(System.Action func)
+    public void ShowMessageNotifi(System.Action func, string tip = "")
     {
         notification.ClearAllNotification();
         notification.transform.SetSiblingIndex(999);
         notification.InitMessageTip(func);
+        if (tip != "")
+        {
+            notification.GetComponentInChildren<TMP_Text>().text = tip;
+        }
     }
 
 }

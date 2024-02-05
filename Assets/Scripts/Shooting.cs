@@ -63,7 +63,6 @@ public class Shooting : MonoBehaviour
     {
         Destroy(gameObject);
         UIManger.GetInstance().ShowShootingScene(transform.parent);
-        Utils.GetInstance().shootingIndex += 1;
     }
 
     /// <summary>
@@ -81,20 +80,36 @@ public class Shooting : MonoBehaviour
         StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (response) =>
         {
             Destroy(loading);
+            Utils.GetInstance().shootingIndex += 1;
             FinalPage.SetActive(true);
             GetResultType result = JsonUtility.FromJson<GetResultType>(response);
             reaction_text.text = result.data.gpt_outcome.reaction;
             event_progress_text.text = result.data.gpt_outcome.event_progress;
             //
-            if (Utils.GetInstance().shootingIndex == 1)
+            if (Utils.GetInstance().shootingIndex == 2)
             {
                 GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() =>
                 {
                     Utils.GetInstance().dwLock = false;
                     Destroy(gameObject);
-                    UIManger.GetInstance().ShowDwitterScene(GameObject.Find("Canvas").transform);
+                    var node = UIManger.GetInstance().ShowDwitterScene(GameObject.Find("Canvas").transform);
+                    node.GetComponentInChildren<DwitterScene>().showGuideUpper();
                 });
             }
+
+            // mia探班
+            if (Utils.GetInstance().shootingIndex == 3)
+            {
+                //TODO
+                //Destroy(gameObject);
+                UIManger.GetInstance().ShowUpperNotifi(GameObject.Find("Canvas").transform, "You revice a message", "Mia send you a message", () =>
+                {
+                    Destroy(gameObject);
+                    var node = UIManger.GetInstance().ShowDwitterScene(GameObject.Find("Canvas").transform);
+                    node.GetComponentInChildren<DwitterScene>().getMessage("Mia", "This is my number");
+                });
+            }
+
         }, (error) =>
         {
             Debug.Log(error);
