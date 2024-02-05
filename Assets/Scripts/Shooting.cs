@@ -113,7 +113,12 @@ public class Shooting : MonoBehaviour
             // noah 探班
             if (Utils.GetInstance().shootingIndex == 4)
             {
-
+                UIManger.GetInstance().ShowUpperNotifi(GameObject.Find("Canvas").transform, "Noah send you a message", "You should make some money", () =>
+                {
+                    Destroy(gameObject);
+                    Utils.GetInstance().noahMoney = true;
+                    var node = UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
+                });
             }
 
         }, (error) =>

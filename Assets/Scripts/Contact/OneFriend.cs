@@ -28,7 +28,16 @@ public class OneFriend : MonoBehaviour
         }
         else if (friendName == "Noah")
         {
-            chatNode.GetComponent<ChatPage>().PlayOne();
+            if (Utils.GetInstance().noahMoney)
+            {
+                string[] options = new string[1];
+                options[0] = "OK";
+                chatNode.GetComponent<ChatPage>().NoahMoney();
+            }
+            else
+            {
+                chatNode.GetComponent<ChatPage>().PlayOne();
+            }
         }
     }
 

@@ -27,10 +27,21 @@ public class OneMessage : MonoBehaviour
         var chatNode = Instantiate(chatPage, GameObject.Find("contactScene(Clone)").transform);
         if (chatName == "Noah")
         {
-            chatNode.GetComponent<ChatPage>().PlayOne();
+            if (Utils.GetInstance().noahMoney)
+            {
+                string[] options = new string[1];
+                options[0] = "OK";
+                chatNode.GetComponent<ChatPage>().NoahMoney();
+            }
+            else
+            {
+                chatNode.GetComponent<ChatPage>().PlayOne();
+            }
         }
         else if (chatName == "Mia")
         {
+            string[] options = new string[1];
+            options[0] = "OK";
             chatNode.GetComponent<ChatPage>().ChatWithMia();
         }
     }

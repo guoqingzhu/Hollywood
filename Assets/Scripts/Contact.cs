@@ -71,12 +71,21 @@ public class Contact : MonoBehaviour
             one.GetComponent<OneFriend>().InitFriend("Mia");
         }
         //创建一个消息
-        List<string> dialogData = readCSV.readFile(dialogPath);
-        var name = dialogData[1].Split(",")[0];
-        var dialog = dialogData[1].Split(",")[1];
-        dialog = dialog.Replace("，", ",");
-        var onem = Instantiate(oneMessage, messageContent.transform);
-        onem.GetComponent<OneMessage>().InitMessage(name, dialog);
+        if (Utils.GetInstance().noahMoney)
+        {
+            var onem = Instantiate(oneMessage, messageContent.transform);
+            onem.GetComponent<OneMessage>().InitMessage("Noah", "You should make some money");
+        }
+        else
+        {
+
+            List<string> dialogData = readCSV.readFile(dialogPath);
+            var name = dialogData[1].Split(",")[0];
+            var dialog = dialogData[1].Split(",")[1];
+            dialog = dialog.Replace("，", ",");
+            var onem = Instantiate(oneMessage, messageContent.transform);
+            onem.GetComponent<OneMessage>().InitMessage(name, dialog);
+        }
 
     }
 

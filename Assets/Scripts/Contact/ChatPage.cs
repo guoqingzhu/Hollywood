@@ -79,10 +79,22 @@ public class ChatPage : MonoBehaviour
     public void ChatWithMia()
     {
         GetMessage("You should go on shooting!!!");
-        GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => {
+        GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() =>
+        {
             Destroy(GameObject.Find("contactScene(Clone)"));
             UIManger.GetInstance().ShowShootingScene(GameObject.Find("Canvas").transform);
-        },"Go on Shooting");
+        }, "Go on Shooting");
+    }
+
+    public void NoahMoney()
+    {
+        GetMessage("You should make some money");
+        GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() =>
+        {
+            Destroy(GameObject.Find("contactScene(Clone)"));
+            Utils.GetInstance().isCafeLock = false;
+            UIManger.GetInstance().ShowMapScene(GameObject.Find("Canvas").transform);
+        }, "Go to cafe");
     }
 
     public void GetMessage(string text)
