@@ -15,6 +15,7 @@ public class NetManger : MonoBehaviour
     public static string getComment = "hollywood/members/outcome-news";
     public static string getFilmList = "hollywood/screenplays";
     public static string addUser = "hollywood/members/enter";
+    public static string patchFilm = "hollywood/members/screenplay";
 
     private static NetManger _instance;
 
@@ -56,6 +57,29 @@ public class NetManger : MonoBehaviour
             {
                 onSuccess?.Invoke(webRequest.downloadHandler.text);
             }
+        }
+    }
+
+
+    public IEnumerator PatchRequest(string uri, string postData, System.Action<string> onSuccess, System.Action<string> onFailure)
+    {
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(postData);
+        UnityWebRequest www = new UnityWebRequest(uri, "PATCH");
+        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        www.downloadHandler = new DownloadHandlerBuffer();
+        www.SetRequestHeader("Content-Type", "application/json");
+
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log("PATCH request failure");
+            onFailure(www.error);
+        }
+        else
+        {
+            Debug.Log("PATCH request successful");
+            onSuccess(www.downloadHandler.text);
         }
     }
 }

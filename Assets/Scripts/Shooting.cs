@@ -29,6 +29,7 @@ public class Shooting : MonoBehaviour
         var loading = UIManger.GetInstance().showLoading(transform);
         var data = new StartGameReq();
         data.device_id = Utils.playerName;
+        data.event_type = "capture";
         data.event_id = "TwoActorsInteraction";
         string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.startGame;

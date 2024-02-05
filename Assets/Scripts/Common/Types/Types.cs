@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -13,6 +14,7 @@ using UnityEngine;
 public class StartGameReq
 {
     public string device_id;
+    public string event_type;
     public string event_id;
 }
 
@@ -47,7 +49,7 @@ public class ActorData
     public string identity;
     public string event_v1;
     public string personality;
-    public string hobbies;
+    public Null hobbies;
 
 }
 

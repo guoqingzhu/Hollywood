@@ -18,3 +18,12 @@ public class AddUserType
     public int code;
     public string message;
 }
+
+
+[Serializable]
+public class PatchUserFilmReq
+{
+    public string device_id;
+    public string key;
+    public ActorData[] actors;
+}

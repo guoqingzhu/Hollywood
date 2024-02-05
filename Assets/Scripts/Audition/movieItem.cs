@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class movieItem : MonoBehaviour
 {
@@ -21,6 +22,20 @@ public class movieItem : MonoBehaviour
         var filDetail = Instantiate(filmDetail, transform.parent.parent.parent.parent.transform);
         filDetail.GetComponent<movieDetail>().Init(curData);
         Utils.GetInstance().eventName = filmName.text;
+
+        PatchUserFilmReq data = new PatchUserFilmReq();
+        data.device_id = Utils.playerName;
+        data.key = curData.key;
+        data.actors = curData.actors;
+        string postData = JsonUtility.ToJson(data);
+        string uri = NetManger.devpath + NetManger.patchFilm;
+        var loading = UIManger.GetInstance().showLoading(transform);
+        StartCoroutine(NetManger.GetInstance().PatchRequest(uri, postData, (resonse) =>
+        {
+            Debug.Log(resonse);
+            Destroy(loading);
+        }, (error) => { }));
+
     }
 
     public void Init(FilmData data)
