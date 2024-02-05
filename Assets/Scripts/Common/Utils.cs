@@ -24,6 +24,8 @@ public class Utils : MonoBehaviour
     public bool hasShowMapGuide = false;
 
 
+    public bool hasAddMia = false;
+
     public static System.Collections.IEnumerator SetTimeout(System.Action action, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -47,6 +49,19 @@ public class Utils : MonoBehaviour
     public bool isStudioLock = false;
     public bool isLibraryLock = false;
     public bool isCafeLock = false;
+
+
+    //// mainScene lock
+    //public bool mapLock = true;
+    //public bool contactLock = true;
+    //public bool dwLock = true;
+    //public bool promotionLock = true;
+    //public bool shootingLock = true;
+
+    //// map lock
+    //public bool isStudioLock = true;
+    //public bool isLibraryLock = true;
+    //public bool isCafeLock = true;
 
     // 记录拍摄轮次，第二轮结尾提示进入dw
     public int shootingIndex = 0;

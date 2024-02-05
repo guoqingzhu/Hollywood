@@ -65,13 +65,18 @@ public class Contact : MonoBehaviour
             var friendLevel = data[i].Split(",")[1];
             one.GetComponent<OneFriend>().InitFriend(friendName);
         }
+        if (Utils.GetInstance().hasAddMia)
+        {
+            var one = Instantiate(oneFriend, contactConent.transform);
+            one.GetComponent<OneFriend>().InitFriend("Mia");
+        }
         //创建一个消息
         List<string> dialogData = readCSV.readFile(dialogPath);
         var name = dialogData[1].Split(",")[0];
         var dialog = dialogData[1].Split(",")[1];
-        dialog = dialog.Replace("，",",");
+        dialog = dialog.Replace("，", ",");
         var onem = Instantiate(oneMessage, messageContent.transform);
-        onem.GetComponent<OneMessage>().InitMessage(name,dialog);
+        onem.GetComponent<OneMessage>().InitMessage(name, dialog);
 
     }
 
