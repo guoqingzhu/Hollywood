@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,7 +39,7 @@ public class Map : MonoBehaviour
         if (Utils.IsGuide() && !Utils.GetInstance().hasShowMapGuide)
         {
             Utils.GetInstance().hasShowMapGuide = true;
-            UIManger.GetInstance().showChatBox(transform, "Noah", "Let's go into the studio");
+            UIManger.GetInstance().showChatBox(transform, "Noah", "Look who's ready to step into the spotlight! Welcome to the studio, my friend. Just click right over here and let's get this audition started. ");
         }
 
         studioBtn.GetComponent<mapBtns>().SetIsLock(Utils.GetInstance().isStudioLock);

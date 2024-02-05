@@ -81,8 +81,11 @@ public class Audition : MonoBehaviour
     public void OnClickMainBack()
     {
         // 返回主界面后显示一条通知
-        var guideNode = transform.parent.parent.Find("Guide");
-        guideNode.GetComponent<Guide>().ShowMesageShootingNotifi();
+        //var guideNode = transform.parent.parent.Find("Guide");
+        //guideNode.GetComponent<Guide>().ShowMesageShootingNotifi();
+        GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => {
+            UIManger.GetInstance().ShowShootingScene(transform.parent);
+        },"The film is signed");
         Utils.GetInstance().shootingLock = false;
         Destroy(transform.parent.gameObject);
     }
