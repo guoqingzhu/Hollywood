@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 public class movieItem : MonoBehaviour
 {
@@ -42,17 +42,22 @@ public class movieItem : MonoBehaviour
     {
         curData = data;
         filmName.text = data.name;
+        var cast = "";
         for (int i = 0; i < data.labels.Length; i++)
         {
             var tag = Instantiate(filmTag, tagsParent.transform);
             tag.GetComponentInChildren<TMP_Text>().text = data.labels[i];
+            cast = data.labels[i] + "  ";
         }
+
+        PlayerPrefs.SetString("filmCast", cast);
 
         for (int i = 0; i < data.actors.Length; i++)
         {
             if (data.actors[i].identity == "director")
             {
                 director.text = data.actors[i].name;
+                PlayerPrefs.SetString("director", data.actors[i].name);
             }
         }
 

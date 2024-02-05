@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 public class Promotion : MonoBehaviour
 {
@@ -60,7 +60,7 @@ public class Promotion : MonoBehaviour
         var curDialog = allDialogs[curIndex];
         var curName = curDialog.Split(':')[0];
         var dialog = curDialog.Split(':')[1];
-        
+
         UIManger.GetInstance().showActChatBox(transform, curName, dialog, () =>
         {
             if (curIndex < allDialogs.Length - 1)
@@ -118,7 +118,7 @@ public class Promotion : MonoBehaviour
         mainNode.SetActive(true);
         var name = dialogs[curDialigIndex].Split(",")[0];
         var dialog = dialogs[curDialigIndex].Split(",")[1];
-        dialog = dialog.Replace("£¬", ",");
+        dialog = dialog.Replace("ï¿½ï¿½", ",");
         UIManger.GetInstance().showActChatBox(transform, name, dialog, () =>
         {
             if (curDialigIndex < dialogs.Count - 1)

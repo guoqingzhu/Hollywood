@@ -3,13 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
     public GameObject ShootingPage;
     public GameObject FinalPage;
-    public TMP_Text themeName;
+    //public TMP_Text themeName;
+
+    public GameObject director;
+    public GameObject filmcast;
+    public GameObject myRole;
+
 
     public TMP_Text reaction_text;
     public TMP_Text event_progress_text;
@@ -40,12 +46,17 @@ public class Shooting : MonoBehaviour
             gameData = JsonUtility.FromJson<StartGameType>(resonse);
             string theme = gameData.data.event_theme;
             allDialogs = gameData.data.gpt_options.dialogue;
-            themeName.text = theme;
+            //themeName.text = theme;
             roundNumText.text = "The " + gameData.data.round_number + "rd" + " day of shooting";
             optionA = gameData.data.gpt_options.a;
             optionB = gameData.data.gpt_options.b;
             optionC = gameData.data.gpt_options.c;
             optionD = gameData.data.gpt_options.d;
+
+            director.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("director");
+            filmcast.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("filmCast");
+            myRole.GetComponent<TMP_Text>().text = "SUPPORTING";
+
         }, (error) => { }));
     }
 
