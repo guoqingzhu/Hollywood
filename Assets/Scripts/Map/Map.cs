@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+
+    public GameObject studioBtn;
+    public GameObject libraryBtn;
+    public GameObject cafeBtn;
+
     public void onClickBack()
     {
         Destroy(gameObject);
@@ -33,6 +38,11 @@ public class Map : MonoBehaviour
             Utils.GetInstance().hasShowMapGuide = true;
             UIManger.GetInstance().showChatBox(transform, "Noah", "Let's go into the studio");
         }
+
+        studioBtn.GetComponent<mapBtns>().SetIsLock(Utils.GetInstance().isStudioLock);
+        libraryBtn.GetComponent<mapBtns>().SetIsLock(Utils.GetInstance().isLibraryLock);
+        cafeBtn.GetComponent<mapBtns>().SetIsLock(Utils.GetInstance().isCafeLock);
+
     }
 
 }

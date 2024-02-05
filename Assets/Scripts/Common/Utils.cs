@@ -37,4 +37,10 @@ public class Utils : MonoBehaviour
 
 
 
+    // map lock
+    public bool isStudioLock = true;
+    public bool isLibraryLock = true;
+    public bool isCafeLock = true;
+
+
 }

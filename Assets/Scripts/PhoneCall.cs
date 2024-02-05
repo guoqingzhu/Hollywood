@@ -18,6 +18,7 @@ public class PhoneCall : MonoBehaviour
         else {
             var guideNode = transform.parent.Find("Guide");
             guideNode.GetComponent<Guide>().ShowMesageNotifi();
+            Utils.GetInstance().isStudioLock = false;
         }
     }
 

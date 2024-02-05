@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 6731295648881277674}
   - component: {fileID: 2129291583224549849}
   - component: {fileID: 6258878427184387295}
+  - component: {fileID: 8501533293787580012}
   m_Layer: 5
   m_Name: sign_library
   m_TagString: Untagged
@@ -519,7 +520,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2129291583224549849}
   m_OnClick:
     m_PersistentCalls:
@@ -536,6 +537,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8501533293787580012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495781573776893400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5403d9942dc4ab4e80bec147fcb4c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1652844803120873803
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3211429949241815076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -788,6 +801,7 @@ GameObject:
   - component: {fileID: 5763224078627417439}
   - component: {fileID: 2054496036913674046}
   - component: {fileID: 4606543488814481938}
+  - component: {fileID: 5726542831340195466}
   m_Layer: 5
   m_Name: sign_CBD
   m_TagString: Untagged
@@ -893,7 +907,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2054496036913674046}
   m_OnClick:
     m_PersistentCalls:
@@ -910,6 +924,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5726542831340195466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4235660923455238873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5403d9942dc4ab4e80bec147fcb4c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4270063532699108416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,6 +1291,7 @@ GameObject:
   - component: {fileID: 6262751314268707485}
   - component: {fileID: 502833288788688164}
   - component: {fileID: 6851556352445447038}
+  - component: {fileID: 2728143555867669332}
   m_Layer: 5
   m_Name: sign_studio
   m_TagString: Untagged
@@ -1370,7 +1397,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 502833288788688164}
   m_OnClick:
     m_PersistentCalls:
@@ -1387,6 +1414,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2728143555867669332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143889584892301132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5403d9942dc4ab4e80bec147fcb4c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5375175657829548442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1476,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a240f07b70e219429e6368b2f449f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  studioBtn: {fileID: 5143889584892301132}
+  libraryBtn: {fileID: 495781573776893400}
+  cafeBtn: {fileID: 6324261267416902134}
 --- !u!1 &5506200182931483220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1030, y: 960}
+  m_AnchoredPosition: {x: -987, y: 960}
   m_SizeDelta: {x: 1632, y: 1920}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &6075750892786767295
@@ -1592,6 +1634,7 @@ GameObject:
   - component: {fileID: 5911879323074006917}
   - component: {fileID: 1760160181252343859}
   - component: {fileID: 7269521579728539106}
+  - component: {fileID: 2256373415355920328}
   m_Layer: 5
   m_Name: sign_cafe
   m_TagString: Untagged
@@ -1697,7 +1740,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1760160181252343859}
   m_OnClick:
     m_PersistentCalls:
@@ -1714,6 +1757,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2256373415355920328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324261267416902134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5403d9942dc4ab4e80bec147fcb4c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6579168505738016530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,6 +2068,7 @@ GameObject:
   - component: {fileID: 4646807670658727351}
   - component: {fileID: 885333382844081548}
   - component: {fileID: 5105467998531836081}
+  - component: {fileID: 4213568085202066180}
   m_Layer: 5
   m_Name: sign_cinema
   m_TagString: Untagged
@@ -2118,7 +2174,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 885333382844081548}
   m_OnClick:
     m_PersistentCalls:
@@ -2135,6 +2191,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4213568085202066180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677770609763358218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5403d9942dc4ab4e80bec147fcb4c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8696976033469008686
 GameObject:
   m_ObjectHideFlags: 0
