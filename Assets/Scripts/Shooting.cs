@@ -39,6 +39,7 @@ public class Shooting : MonoBehaviour
         data.event_id = "TwoActorsInteraction";
         string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.startGame;
+        Debug.Log("shooting" + postData);
         StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (resonse) =>
         {
             Debug.Log(resonse);
@@ -85,10 +86,11 @@ public class Shooting : MonoBehaviour
     {
         var loading = UIManger.GetInstance().showLoading(transform);
         var data = new GetResultReq();
-        data.device_id = "xxxx0001";
+        data.device_id = Utils.playerName;
         data.option_id = info;
         string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.getResult;
+        Debug.Log("getresult"+postData);
         StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (response) =>
         {
             Destroy(loading);
