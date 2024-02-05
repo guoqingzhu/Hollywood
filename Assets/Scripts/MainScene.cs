@@ -24,10 +24,10 @@ public class MainScene : MonoBehaviour
             registNode.SetActive(false);
         }
     }
-
-    public void onClickDwitter()
+  
+    public void onClickMap()
     {
-        UIManger.GetInstance().ShowDwitterScene(transform);
+        UIManger.GetInstance().ShowMapScene(transform);
     }
 
     public void onClickContact()
@@ -35,9 +35,14 @@ public class MainScene : MonoBehaviour
         UIManger.GetInstance().ShowcontactScene(transform);
     }
 
-    public void onClickAudition()
+    public void onClickDwitter()
     {
-        UIManger.GetInstance().ShowAuditionScene(transform);
+        UIManger.GetInstance().ShowDwitterScene(transform);
+    }
+
+    public void onClickPromotion()
+    {
+        UIManger.GetInstance().ShowPromotionScene(transform);
     }
 
     public void onClickShooting()
@@ -45,10 +50,6 @@ public class MainScene : MonoBehaviour
         UIManger.GetInstance().ShowShootingScene(transform);
     }
 
-    public void onClickMap()
-    {
-        UIManger.GetInstance().ShowMapScene(transform);
-    }
 
 
     /// <summary>

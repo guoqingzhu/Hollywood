@@ -26,6 +26,8 @@ public class UIManger : MonoBehaviour
     private string dwitterScene = "Scene/dwitterSceneNew";
     private string libraryScene = "Scene/libraryScene";
     private string studioScene = "Scene/studioScene";
+    private string promotionScene = "Scene/promotionScene";
+
 
 
 
@@ -130,6 +132,15 @@ public class UIManger : MonoBehaviour
         var node = Instantiate(gameObject, parent);
         return node;
     }
+
+
+    public GameObject ShowPromotionScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(promotionScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
 
     public GameObject ShowMapScene(Transform parent)
     {
