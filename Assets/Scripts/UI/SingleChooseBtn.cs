@@ -34,7 +34,8 @@ public class SingleChooseBtn : MonoBehaviour
 
     public void InitBtn(ChooseInfo info)
     {
-        context.text = info.chooseName;
+        var msg = char.ToUpper(info.chooseName[0]) + info.chooseName.Substring(1);
+        context.text = msg;
         func = info.func;
         if (info.attinfo != null)
         {
@@ -57,7 +58,7 @@ public class SingleChooseBtn : MonoBehaviour
                 imageName += "_2";
 
             }
-            Sprite myImage = Resources.Load<Sprite>("images/hollywood_attribute/"+imageName);
+            Sprite myImage = Resources.Load<Sprite>("images/hollywood_attribute/" + imageName);
             attributeIcon.GetComponent<Image>().sprite = myImage;
         }
     }

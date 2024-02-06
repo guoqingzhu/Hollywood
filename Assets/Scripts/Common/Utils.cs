@@ -9,17 +9,27 @@ public class Utils : MonoBehaviour
     private static Utils _instance;
 
     public static string playerName = PlayerPrefs.GetString("playerName");
-
+    public static int playerAge = PlayerPrefs.GetInt("playerAge");
+    public static string playerGender = PlayerPrefs.GetString("playerGender");
 
     public string eventName = "";
 
     public ActorData[] curActors;
+
+
 
     public static Utils GetInstance()
     {
         return _instance ?? (_instance = new Utils());
     }
 
+    public static string[] shootingType = {
+         "TwoActorsInteraction",
+         "TwoActorsInteraction",
+         "TwoActorsInteraction",
+         "TwoActorsInteraction", 
+         "TwoActorsInteraction" 
+    };
 
     /// <summary>
     /// 是否接听教程电话

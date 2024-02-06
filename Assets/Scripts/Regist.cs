@@ -19,17 +19,20 @@ public class Regist : MonoBehaviour
             data.nickname = nameInput.text;
             data.age = int.Parse(ageInput.text);
             Utils.playerName = nameInput.text;
+            Utils.playerAge = int.Parse(ageInput.text);
             PlayerPrefs.SetString("playerName", nameInput.text);
             PlayerPrefs.SetInt("playerAge", int.Parse(ageInput.text));
             if (genderSelect.value == 0)
             {
                 PlayerPrefs.SetString("playerGender", "male");
                 data.gender = "male";
+                Utils.playerGender = "male";
             }
             else
             {
                 PlayerPrefs.SetString("playerGender", "female");
                 data.gender = "Female";
+                Utils.playerGender = "Female";
             }
             PlayerPrefs.SetInt("hasRegist", 1);
 

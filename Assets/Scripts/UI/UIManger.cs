@@ -57,6 +57,9 @@ public class UIManger : MonoBehaviour
     /// <param name="content"></param>
     public GameObject showChatBox(Transform parent, string actorName, string content, bool needlihui, ChatBox.CallBack cb = null)
     {
+        if (actorName == "player") {
+            actorName = Utils.playerName;
+        }
         var gameObject = LoadGameObject(chatBoxName);
         var box = Instantiate(gameObject, parent);
         box.GetComponent<ChatBox>().InitChatBox(actorName, content, needlihui, cb);

@@ -74,6 +74,7 @@ public class ActChatBox : MonoBehaviour
             }
         }
         msg = msg.Replace("£¬", ",");
+        msg = msg.Replace("[player]",Utils.playerName);
         actname.text = name;
         context.text = msg;
         if (cb != null) callBack = cb;

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class attInfo
 {
@@ -41,13 +42,42 @@ public class Shooting : MonoBehaviour
     private attInfo optionCInfo = new attInfo();
     private attInfo optionDInfo = new attInfo();
 
+
+    //public void signPlayer(System.Action func, string actName = "Noah")
+    //{
+    //    var data = new AddUserReq();
+    //    data.device_id = Utils.playerName;
+    //    data.nickname = Utils.playerName;
+    //    data.age = Utils.playerAge;
+    //    data.gender = Utils.playerGender;
+    //    if (actName != null) data.special_npc_name = actName;
+    //    string postData = JsonUtility.ToJson(data);
+    //    string uri = NetManger.devpath + NetManger.addUser;
+    //    StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (resonse) =>
+    //    {
+    //        Debug.Log("sign user" + resonse);
+    //        func();
+    //    }, (error) => { }));
+    //}
+
     public void Start()
     {
+        //string actName = null;
+        //if (Utils.GetInstance().shootingIndex == 3)
+        //{
+        //    actName = "Mia";
+        //}
+        //else if (Utils.GetInstance().shootingIndex == 4)
+        //{
+        //    actName = "Noah";
+        //}
+
+
         var loading = UIManger.GetInstance().showLoading(transform);
         var data = new StartGameReq();
         data.device_id = Utils.playerName;
         data.event_type = "capture";
-        data.event_id = "SpecialNpcAndNpcAndPlayerInteraction";
+        data.event_id = Utils.shootingType[Utils.GetInstance().shootingIndex];
         string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.startGame;
         Debug.Log("shooting" + postData);
@@ -59,7 +89,7 @@ public class Shooting : MonoBehaviour
             string theme = gameData.data.event_theme;
             allDialogs = gameData.data.gpt_options.dialogue;
             //themeName.text = theme;
-            roundNumText.text = "The " + gameData.data.round_number + "rd" + " day of shooting";
+            roundNumText.text = "The " + gameData.data.round_number + "" + " day of shooting";
             optionA = gameData.data.gpt_options.a;
             optionB = gameData.data.gpt_options.b;
             optionC = gameData.data.gpt_options.c;
@@ -82,6 +112,8 @@ public class Shooting : MonoBehaviour
             myRole.GetComponent<TMP_Text>().text = "SUPPORTING";
 
         }, (error) => { }));
+
+
     }
 
     public void OnClickAct()
@@ -125,6 +157,7 @@ public class Shooting : MonoBehaviour
             //
             if (Utils.GetInstance().shootingIndex == 2)
             {
+                // 第二轮结束
                 GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() =>
                 {
                     Utils.GetInstance().dwLock = false;
@@ -137,7 +170,7 @@ public class Shooting : MonoBehaviour
             // mia探班
             if (Utils.GetInstance().shootingIndex == 3)
             {
-                //TODO
+                // 第三轮结束
                 //Destroy(gameObject);
                 UIManger.GetInstance().ShowUpperNotifi(GameObject.Find("Canvas").transform, "You revice a message", "Mia send you a message", () =>
                 {
@@ -145,17 +178,21 @@ public class Shooting : MonoBehaviour
                     var node = UIManger.GetInstance().ShowDwitterScene(GameObject.Find("Canvas").transform);
                     node.GetComponentInChildren<DwitterScene>().getMessage("Mia", "This is my number");
                 });
+
+
             }
 
             // noah 探班
             if (Utils.GetInstance().shootingIndex == 4)
             {
+                //第四轮结束
                 UIManger.GetInstance().ShowUpperNotifi(GameObject.Find("Canvas").transform, "Noah send you a message", "You should make some money", () =>
                 {
                     Destroy(gameObject);
                     Utils.GetInstance().noahMoney = true;
                     var node = UIManger.GetInstance().ShowcontactScene(GameObject.Find("Canvas").transform);
                 });
+
             }
 
         }, (error) =>

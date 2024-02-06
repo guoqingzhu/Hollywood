@@ -81,15 +81,24 @@ public class ChatPage : MonoBehaviour
     {
         dialogs = readCSV.readFile(dialogPath);
         var dialog = dialogs[curDialigIndex].Split(",")[1];
-        GetMessage(dialog);
-        string[] options = new string[1];
-        if (curDialigIndex + 1 < dialogs.Count - 1)
+        StartCoroutine(DelayedMethod(0.5f, () =>
         {
-            curLong = dialogs[curDialigIndex + 1].Split(",")[1];
-            var shortStr = dialogs[curDialigIndex += 1].Split(",")[2];
-            options[0] = shortStr;
-            SetOptions(options);
-        }
+            GetMessage(dialog);
+            string[] options = new string[1];
+            if (curDialigIndex + 1 < dialogs.Count - 1)
+            {
+                curLong = dialogs[curDialigIndex + 1].Split(",")[1];
+                var shortStr = dialogs[curDialigIndex += 1].Split(",")[2];
+                options[0] = shortStr;
+                SetOptions(options);
+            }
+        }));
+    }
+
+    IEnumerator DelayedMethod(float delayTime, System.Action func)
+    {
+        yield return new WaitForSeconds(delayTime); // 等待指定的时间
+        func();
     }
 
     public void ChatWithMia()

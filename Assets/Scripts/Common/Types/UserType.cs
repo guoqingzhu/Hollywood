@@ -10,6 +10,7 @@ public class AddUserReq
     public string nickname;
     public int age;
     public string gender;
+    public string special_npc_name;
 }
 
 [Serializable]
