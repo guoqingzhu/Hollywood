@@ -139,6 +139,8 @@ public class Promotion : MonoBehaviour
             else
             {
                 //dialogBg.SetActive(false);
+                Destroy(gameObject);
+                GameObject.Find("Guide").GetComponent<Guide>().PlayFinal();
             }
         });
     }

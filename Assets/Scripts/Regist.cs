@@ -18,6 +18,7 @@ public class Regist : MonoBehaviour
             data.device_id = nameInput.text;
             data.nickname = nameInput.text;
             data.age = int.Parse(ageInput.text);
+            Utils.playerName = nameInput.text;
             PlayerPrefs.SetString("playerName", nameInput.text);
             PlayerPrefs.SetInt("playerAge", int.Parse(ageInput.text));
             if (genderSelect.value == 0)
