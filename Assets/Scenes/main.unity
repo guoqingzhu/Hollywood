@@ -272,7 +272,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2b4c67dfe5e4ea04a92cdfd02f7c5328, type: 3}
   - {fileID: 21300000, guid: d84dd481e8d2b444aab7b1b2b8bdd74a, type: 3}
   - {fileID: 21300000, guid: 670fc3ac8050db24fa116935a4ca73c0, type: 3}
-  miaHead: {fileID: 21300000, guid: 110dca6ed72ebd34c8b36caa90e4bdf0, type: 3}
+  miaHead: {fileID: 21300000, guid: 01ed76903d0232b408bd5ae6e9530cae, type: 3}
   noahHead: {fileID: 21300000, guid: 73234b1f66bded54294ad575974d8ce3, type: 3}
 --- !u!1 &40418248
 GameObject:
