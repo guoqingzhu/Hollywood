@@ -19,7 +19,7 @@ public class Guide : MonoBehaviour
         finalNode.SetActive(true);
         var name = dialogs[curDialigIndex].Split(",")[0];
         var dialog = dialogs[curDialigIndex].Split(",")[1];
-        dialog = dialog.Replace("£¬",",");
+        dialog = dialog.Replace("ï¿½ï¿½", ",");
         UIManger.GetInstance().showActChatBox(finalNode.transform, name, dialog, () =>
         {
             if (curDialigIndex < dialogs.Count - 1)
@@ -36,22 +36,26 @@ public class Guide : MonoBehaviour
         //PlayFinal();
         if (Utils.GetInstance().hasGetGuideCall == false)
         {
-            mainNotification.InitPhoneNoti(() => { 
-              Instantiate(phoneCallPage, GameObject.FindWithTag("MainPage").transform);
+            mainNotification.InitPhoneNoti(() =>
+            {
+                Instantiate(phoneCallPage, GameObject.FindWithTag("MainPage").transform);
             });
         }
+
     }
 
     public void ShowGuidePhoneCall()
     {
-        mainNotification.InitPhoneNoti(() => {
+        mainNotification.InitPhoneNoti(() =>
+        {
             Instantiate(phoneCallPage, GameObject.FindWithTag("MainPage").transform);
         });
     }
 
     public void ShowMesageNotifi()
     {
-        mainNotification.InitMessageTip(() => {
+        mainNotification.InitMessageTip(() =>
+        {
             UIManger.GetInstance().ShowMapScene(transform.parent);
         });
     }
@@ -59,7 +63,8 @@ public class Guide : MonoBehaviour
 
     public void ShowMesageShootingNotifi()
     {
-        mainNotification.InitMessageTip(() => {
+        mainNotification.InitMessageTip(() =>
+        {
             UIManger.GetInstance().ShowShootingScene(transform.parent);
         });
     }

@@ -6,6 +6,12 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public class attInfo
+{
+    public string key;
+    public int value;
+}
+
 public class Shooting : MonoBehaviour
 {
     public GameObject ShootingPage;
@@ -30,6 +36,11 @@ public class Shooting : MonoBehaviour
     private string optionC = "";
     private string optionD = "";
 
+    private attInfo optionAInfo = new attInfo();
+    private attInfo optionBInfo = new attInfo();
+    private attInfo optionCInfo = new attInfo();
+    private attInfo optionDInfo = new attInfo();
+
     public void Start()
     {
         var loading = UIManger.GetInstance().showLoading(transform);
@@ -53,6 +64,18 @@ public class Shooting : MonoBehaviour
             optionB = gameData.data.gpt_options.b;
             optionC = gameData.data.gpt_options.c;
             optionD = gameData.data.gpt_options.d;
+
+            optionAInfo.key = gameData.data.attribute_values[0].key;
+            optionAInfo.value = gameData.data.attribute_values[0].value;
+
+            optionBInfo.key = gameData.data.attribute_values[1].key;
+            optionBInfo.value = gameData.data.attribute_values[1].value;
+
+            optionCInfo.key = gameData.data.attribute_values[2].key;
+            optionCInfo.value = gameData.data.attribute_values[2].value;
+
+            optionDInfo.key = gameData.data.attribute_values[3].key;
+            optionDInfo.value = gameData.data.attribute_values[3].value;
 
             director.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("director");
             filmcast.GetComponent<TMP_Text>().text = PlayerPrefs.GetString("filmCast");
@@ -90,7 +113,7 @@ public class Shooting : MonoBehaviour
         data.option_id = info;
         string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.getResult;
-        Debug.Log("getresult"+postData);
+        Debug.Log("getresult" + postData);
         StartCoroutine(NetManger.GetInstance().PostRequest(uri, postData, (response) =>
         {
             Destroy(loading);
@@ -164,18 +187,18 @@ public class Shooting : MonoBehaviour
     void ShowOptions()
     {
         var list = new List<ChooseInfo> {
-                        new(optionA, ()=>{
+                        new(optionA,()=>{
                             ShowFinal("player_capture_select_option_goodness");
-                        }),
+                        },optionAInfo),
                         new(optionB,() => {
                            ShowFinal("player_capture_select_option_evil");
-                        }) ,
+                        },optionBInfo) ,
                         new(optionC,() => {
                             ShowFinal("player_capture_select_option_nonintervene");
-                        }),
+                        },optionCInfo),
                          new(optionD,() => {
                             ShowFinal("player_capture_select_option_prank");
-                        }),
+                        },optionDInfo),
                    };
         UIManger.GetInstance().showChooseBox(transform, list);
     }

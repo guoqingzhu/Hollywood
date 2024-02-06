@@ -6,13 +6,15 @@ using UnityEngine;
 public class ChooseInfo
 {
     public string chooseName;
+    public attInfo attinfo;
     public delegate void Func();
     public Func func;
 
-    public ChooseInfo(string name, Func cb)
+    public ChooseInfo(string name, Func cb, attInfo att = null)
     {
         chooseName = name;
         func = cb;
+        if (att != null) attinfo = att;
     }
 
 }
@@ -26,10 +28,20 @@ public class SingleChooseBtn : MonoBehaviour
     public TextMeshProUGUI context;
     private ChooseInfo.Func func;
 
+    public GameObject attributeIcon;
+
+
     public void InitBtn(ChooseInfo info)
     {
         context.text = info.chooseName;
         func = info.func;
+        if (info.attinfo != null)
+        {
+            Debug.Log(info.attinfo.key + "  " + info.attinfo.value);
+            // add icon
+            attributeIcon.SetActive(true);
+            context.GetComponent<RectTransform>().offsetMin = new Vector2(120, context.GetComponent<RectTransform>().offsetMin.y);
+        }
     }
 
     public void OnClick()
