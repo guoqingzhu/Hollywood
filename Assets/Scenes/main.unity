@@ -257,6 +257,22 @@ MonoBehaviour:
   dwBtnNode: {fileID: 61890011}
   promotionBtnNode: {fileID: 310497725}
   shootingBtnNode: {fileID: 880378250}
+  headImages:
+  - {fileID: 21300000, guid: 68362ed61f812fe4cb28c80e416c6f5c, type: 3}
+  - {fileID: 21300000, guid: 4fc343e05d928404baeb8395a1d2cd49, type: 3}
+  - {fileID: 21300000, guid: db3d0750b2dee274fb0a3259fb216205, type: 3}
+  - {fileID: 21300000, guid: b5b3ae7740545ce428072b3993f13c93, type: 3}
+  - {fileID: 21300000, guid: 91b416f82c9614a41a8a238fdfad9838, type: 3}
+  - {fileID: 21300000, guid: 55ca5dc0303d24045b0563d4b3fa29b0, type: 3}
+  - {fileID: 21300000, guid: 073190b9c3f19c743a3657c2e9f2ee2c, type: 3}
+  - {fileID: 21300000, guid: 7d60c2f2637f1084bb6b6932f131483a, type: 3}
+  - {fileID: 21300000, guid: e9274212e369dee49afa818ff8b3151b, type: 3}
+  - {fileID: 21300000, guid: da4a07c3efbde20459b1f54393e3bd85, type: 3}
+  - {fileID: 21300000, guid: 2b4c67dfe5e4ea04a92cdfd02f7c5328, type: 3}
+  - {fileID: 21300000, guid: d84dd481e8d2b444aab7b1b2b8bdd74a, type: 3}
+  - {fileID: 21300000, guid: 670fc3ac8050db24fa116935a4ca73c0, type: 3}
+  miaHead: {fileID: 21300000, guid: 110dca6ed72ebd34c8b36caa90e4bdf0, type: 3}
+  noahHead: {fileID: 21300000, guid: 73234b1f66bded54294ad575974d8ce3, type: 3}
 --- !u!1 &40418248
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ public class ChatPage : MonoBehaviour
     public GameObject optionsNode;
     public GameObject contant;
     public GameObject chatItem;
+    public GameObject headImage;
+
 
     private string[] myOptions;
 
@@ -18,6 +21,19 @@ public class ChatPage : MonoBehaviour
     private int curDialigIndex = 1;
     private List<string> dialogs;
     private string curLong = "";
+
+    public void InitChatPage(string name)
+    {
+        if (name == "Noah")
+        {
+            headImage.GetComponent<Image>().sprite = GameObject.Find("Canvas").GetComponent<MainScene>().noahHead;
+        }
+        else if (name == "Mia")
+        {
+            headImage.GetComponent<Image>().sprite = GameObject.Find("Canvas").GetComponent<MainScene>().miaHead;
+        }
+    }
+
 
 
     public void OnClickBack()

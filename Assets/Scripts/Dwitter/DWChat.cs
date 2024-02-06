@@ -10,12 +10,27 @@ public class DWChat : MonoBehaviour
     public GameObject inputField;
     public GameObject chatBox; //单条消息
     public GameObject chatContent;// 消息父节点
+    public GameObject headImage;
 
     /// <summary>
     /// 初始化聊天界面
     /// </summary>
     /// <param name="data"></param>
     public void initChat(ChatInitData data) { }
+
+
+    public void InitChatPage(string name)
+    {
+        if (name == "Noah")
+        {
+            headImage.GetComponent<Image>().sprite = GameObject.Find("Canvas").GetComponent<MainScene>().noahHead;
+        }
+        else if (name == "Mia")
+        {
+            headImage.GetComponent<Image>().sprite = GameObject.Find("Canvas").GetComponent<MainScene>().miaHead;
+        }
+    }
+
 
 
     private void Start()

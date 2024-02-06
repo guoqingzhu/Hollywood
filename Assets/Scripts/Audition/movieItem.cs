@@ -30,6 +30,7 @@ public class movieItem : MonoBehaviour
         string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.patchFilm;
         var loading = UIManger.GetInstance().showLoading(transform);
+        Utils.GetInstance().curActors = curData.actors;
         StartCoroutine(NetManger.GetInstance().PatchRequest(uri, postData, (resonse) =>
         {
             Debug.Log(resonse);

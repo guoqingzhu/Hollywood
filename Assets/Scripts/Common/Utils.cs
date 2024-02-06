@@ -13,6 +13,8 @@ public class Utils : MonoBehaviour
 
     public string eventName = "";
 
+    public ActorData[] curActors;
+
     public static Utils GetInstance()
     {
         return _instance ?? (_instance = new Utils());

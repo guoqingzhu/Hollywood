@@ -19,6 +19,12 @@ public class MainScene : MonoBehaviour
     public GameObject promotionBtnNode;
     public GameObject shootingBtnNode;
 
+    public Sprite[] headImages;
+
+    public Sprite miaHead;
+    public Sprite noahHead;
+
+
     private void Start()
     {
 

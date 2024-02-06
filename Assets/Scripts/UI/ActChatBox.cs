@@ -16,6 +16,8 @@ public class ActChatBox : MonoBehaviour
     public GameObject lihui_player;
     public GameObject headIcon;
 
+    public Sprite[] heads;
+
     private bool hasSetFinish = false;
     private int curIndex = 1;
 
@@ -50,8 +52,16 @@ public class ActChatBox : MonoBehaviour
         {
             lihui_Noah.SetActive(true);
         }
-        else {
-            headIcon.SetActive(true);
+        else
+        {
+            for (int i = 0; i < Utils.GetInstance().curActors.Length; i += 1)
+            {
+                if (Utils.GetInstance().curActors[i].name == name)
+                {
+                    headIcon.GetComponent<Image>().sprite = heads[i];
+                    headIcon.SetActive(true);
+                }
+            }
         }
         actname.text = name;
         context.text = msg;
