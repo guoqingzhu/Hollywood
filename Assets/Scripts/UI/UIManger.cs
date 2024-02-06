@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// ¿ØÖÆ³¡¾°ÄÚµÄUIÏÔÊ¾
+// ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½Úµï¿½UIï¿½ï¿½Ê¾
 public class UIManger : MonoBehaviour
 {
 
@@ -38,7 +38,7 @@ public class UIManger : MonoBehaviour
     }
 
 
-    // ¸ù¾ÝÃû×Ö¼ÓÔØUIobject
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½UIobject
     private GameObject LoadGameObject(string objName)
     {
         GameObject obj = Resources.Load<GameObject>(originPath + objName);
@@ -50,15 +50,15 @@ public class UIManger : MonoBehaviour
     }
 
     /// <summary>
-    ///  ÏÔÊ¾Ò»¸öÁÄÌì¿ò
+    ///  ï¿½ï¿½Ê¾Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="parent"></param>
     /// <param name="content"></param>
-    public GameObject showChatBox(Transform parent, string actorName, string content, ChatBox.CallBack cb = null)
+    public GameObject showChatBox(Transform parent, string actorName, string content, bool needlihui, ChatBox.CallBack cb = null)
     {
         var gameObject = LoadGameObject(chatBoxName);
         var box = Instantiate(gameObject, parent);
-        box.GetComponent<ChatBox>().InitChatBox(actorName, content, cb);
+        box.GetComponent<ChatBox>().InitChatBox(actorName, content, needlihui, cb);
         return box;
     }
 
@@ -66,7 +66,7 @@ public class UIManger : MonoBehaviour
     //aa.Add("1111");
     //UIManger.GetInstance().showChooseBox(transform, aa);
     /// <summary>
-    /// ÏÔÊ¾n¸öÑ¡Ïî
+    /// ï¿½ï¿½Ê¾nï¿½ï¿½Ñ¡ï¿½ï¿½
     /// </summary>
     /// <param name="parent"></param>
     /// <param name="items"></param>
@@ -81,10 +81,11 @@ public class UIManger : MonoBehaviour
 
     public GameObject showActChatBox(Transform parent, string actName, string msg, ActChatBox.CallBack cb = null)
     {
-        if (actName == "Player" || actName == "player") {
+        if (actName == "Player" || actName == "player")
+        {
             actName = Utils.playerName;
         }
-        msg = msg.Replace("£¬",",");
+        msg = msg.Replace("ï¿½ï¿½", ",");
         var gameObject = LoadGameObject(actChatBoxName);
         var box = Instantiate(gameObject, parent);
         //Texture2D actImage = Resources.Load<Texture2D>(actoriginPath + actName);
@@ -93,7 +94,7 @@ public class UIManger : MonoBehaviour
     }
 
     /// <summary>
-    /// ÏÔÊ¾¼ÓÔØ¡£¡£¡£
+    /// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ø¡ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="parent"></param>
     /// <returns></returns>
@@ -107,7 +108,7 @@ public class UIManger : MonoBehaviour
 
 
     /// <summary>
-    /// ÏÔÊ¾dwÍ¨Öª
+    /// ï¿½ï¿½Ê¾dwÍ¨Öª
     /// </summary>
     /// <param name="parent"></param>
     /// <param name="title"></param>

@@ -12,6 +12,10 @@ public class ActChatBox : MonoBehaviour
     public GameObject nextBtn;
     public GameObject talkbox;
 
+    public GameObject lihui_Noah;
+    public GameObject lihui_player;
+    public GameObject headIcon;
+
     private bool hasSetFinish = false;
     private int curIndex = 1;
 
@@ -38,6 +42,17 @@ public class ActChatBox : MonoBehaviour
     {
         //actorNode.GetComponent<Image>().material.mainTexture = actor;
         //actorNode.GetComponent<Image>().sprite = Sprite.Create(actor, new Rect(0, 0, actor.width, actor.height), new Vector2(0.5f, 0.5f));
+        if (name == Utils.playerName)
+        {
+            lihui_player.SetActive(true);
+        }
+        else if (name == "Noah")
+        {
+            lihui_Noah.SetActive(true);
+        }
+        else {
+            headIcon.SetActive(true);
+        }
         actname.text = name;
         context.text = msg;
         if (cb != null) callBack = cb;
