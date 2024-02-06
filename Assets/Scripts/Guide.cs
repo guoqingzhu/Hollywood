@@ -41,23 +41,6 @@ public class Guide : MonoBehaviour
                 Instantiate(phoneCallPage, GameObject.FindWithTag("MainPage").transform);
             });
         }
-
-        //
-        attInfo info1 = new attInfo();
-        info1.key = "sciFi_writing";
-        info1.value = 3;
-
-    
-
-        var list = new List<ChooseInfo> {
-            new("Nothing you can do,Nothing you can do,Nothing you can do,Nothing you can do,Nothing you can do,Nothing you can do,Nothing you can do",()=>{
-
-            },info1),
-            new("What's your plan?",() => {
-
-            }) ,
-       };
-        UIManger.GetInstance().showChooseBox(transform, list);
     }
 
     public void ShowGuidePhoneCall()
