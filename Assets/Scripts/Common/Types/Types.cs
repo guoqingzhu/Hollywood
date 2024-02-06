@@ -156,6 +156,15 @@ public class GptNews
 /// ��ȡ�û���Ϣ����������
 /// </summary>
 /// 
+
+
+[Serializable]
+public class GetUserInfoReq
+{
+    public string device_id;
+}
+
+
 [Serializable]
 public class GetUserInfoType
 {
