@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Ò»ÏÂÊÇ¿ªÊ¼ÓÎÏ·/½øÈëÏÂÒ»ÂÖÓÎÏ·µÄÊı¾İÀàĞÍ
+/// Ò»ï¿½ï¿½ï¿½Ç¿ï¿½Ê¼ï¿½ï¿½Ï·/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 /// 
 
@@ -73,7 +73,7 @@ public class Gpt_options
 }
 
 /// <summary>
-/// Ò»ÏÂÊÇ¸ù¾İÑ¡Ïî»ñÈ¡½á¹ûµÄÊı¾İÀàĞÍ
+/// Ò»ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 /// 
 
@@ -118,7 +118,7 @@ public class GptOutCome
 
 
 /// <summary>
-/// ÒÔÏÂÊÇ¸ù¾İ½á¹û»ñÈ¡ĞÂÎÅÆÀÂÛµÄÊı¾İÀàĞÍ
+/// ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½İ½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 /// 
 
@@ -153,7 +153,7 @@ public class GptNews
 
 
 /// <summary>
-/// »ñÈ¡ÓÃ»§ĞÅÏ¢µÄÊı¾İÀàĞÍ
+/// ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 /// 
 [Serializable]
@@ -191,16 +191,22 @@ public class UserInfoAttribute
 [Serializable]
 public class UserValues
 {
-    public string collaboration;
-    public string crime;
-    public string facial_expressions;
-    public string fame;
-    public string favorability;
-    public string interest_psychic;
-    public string lines_dialogues;
-    public string physical_expression;
-    public string romance;
-    public string science_fiction;
+    public int action_writing;
+    public int aesthetic;
+    public int body_expression;
+    public int collaboration;
+    public int comedy_writing;
+    public int dancing;
+    public int dialogue;
+    public int facial_expression;
+    public int fortune_telling;
+    public int likability;
+    public int mystery_writing;
+    public int philosophy;
+    public int romance_writing;
+    public int sciFi_writing;
+    public int singing;
+
 }
 
 [Serializable]
