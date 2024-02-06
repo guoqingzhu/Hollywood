@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChooseInfo
 {
@@ -41,6 +42,9 @@ public class SingleChooseBtn : MonoBehaviour
             // add icon
             attributeIcon.SetActive(true);
             context.GetComponent<RectTransform>().offsetMin = new Vector2(120, context.GetComponent<RectTransform>().offsetMin.y);
+
+            Sprite myImage = Resources.Load<Sprite>("images/hollywood_attribute/test");
+            attributeIcon.GetComponent<Image>().sprite = myImage;
         }
     }
 
