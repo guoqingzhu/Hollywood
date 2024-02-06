@@ -28,6 +28,7 @@ public class UIManger : MonoBehaviour
     private string studioScene = "Scene/studioScene";
     private string promotionScene = "Scene/promotionScene";
     private string cafeScene = "Scene/cafeScene";
+    private string profileScene = "Scene/profileScene";
 
 
 
@@ -186,6 +187,13 @@ public class UIManger : MonoBehaviour
     public GameObject ShowStudioScene(Transform parent)
     {
         var gameObject = LoadGameObject(studioScene);
+        var node = Instantiate(gameObject, parent);
+        return node;
+    }
+
+    public GameObject ShowProfileScene(Transform parent)
+    {
+        var gameObject = LoadGameObject(profileScene);
         var node = Instantiate(gameObject, parent);
         return node;
     }

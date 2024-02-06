@@ -79,6 +79,13 @@ public class MainScene : MonoBehaviour
         UIManger.GetInstance().ShowShootingScene(transform);
     }
 
+    public void onClickProfile()
+    {
+        notification.ClearAllNotification();
+        UIManger.GetInstance().ShowProfileScene(transform);
+    }
+
+
 
 
     /// <summary>
