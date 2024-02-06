@@ -36,7 +36,7 @@ public class Shooting : MonoBehaviour
         var data = new StartGameReq();
         data.device_id = Utils.playerName;
         data.event_type = "capture";
-        data.event_id = "TwoActorsInteraction";
+        data.event_id = "SpecialNpcAndNpcAndPlayerInteraction";
         string postData = JsonUtility.ToJson(data);
         string uri = NetManger.devpath + NetManger.startGame;
         Debug.Log("shooting" + postData);

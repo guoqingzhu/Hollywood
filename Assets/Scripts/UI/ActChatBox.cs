@@ -54,15 +54,26 @@ public class ActChatBox : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < Utils.GetInstance().curActors.Length; i += 1)
+
+            if (name == "Mia")
             {
-                if (Utils.GetInstance().curActors[i].name == name)
+                headIcon.GetComponent<Image>().sprite = GameObject.Find("Canvas").GetComponent<MainScene>().miaHead;
+                headIcon.SetActive(true);
+            }
+            else
+            {
+                for (int i = 0; i < Utils.GetInstance().curActors.Length; i += 1)
                 {
-                    headIcon.GetComponent<Image>().sprite = heads[i];
-                    headIcon.SetActive(true);
+                    if (Utils.GetInstance().curActors[i].name == name)
+                    {
+                        headIcon.GetComponent<Image>().sprite = heads[i];
+                        headIcon.SetActive(true);
+                    }
                 }
+
             }
         }
+        msg = msg.Replace("£¬", ",");
         actname.text = name;
         context.text = msg;
         if (cb != null) callBack = cb;
