@@ -26,13 +26,21 @@ public class Utils : MonoBehaviour
     public static string[] shootingType = {
          "TwoActorsInteraction",
          "TwoActorsInteraction",
+         "SpecialNpcAndNpcAndPlayerInteraction",
          "TwoActorsInteraction",
-         "TwoActorsInteraction", 
-         "TwoActorsInteraction" 
+         "TwoActorsInteraction"
+    };
+
+    public static string[] dayH = {
+        "st",
+        "nd",
+        "rd",
+        "th",
+        "th"
     };
 
     /// <summary>
-    /// ÊÇ·ñ½ÓÌý½Ì³Ìµç»°
+    /// ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ìµç»°
     /// </summary>
     public bool hasGetGuideCall = false;
     public bool hasShowMapGuide = false;
@@ -78,6 +86,6 @@ public class Utils : MonoBehaviour
     public bool isLibraryLock = true;
     public bool isCafeLock = true;
 
-    // ¼ÇÂ¼ÅÄÉãÂÖ´Î£¬µÚ¶þÂÖ½áÎ²ÌáÊ¾½øÈëdw
+    // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Î£ï¿½ï¿½Ú¶ï¿½ï¿½Ö½ï¿½Î²ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½dw
     public int shootingIndex = 0;
 }

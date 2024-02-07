@@ -27,6 +27,10 @@ public class Guide : MonoBehaviour
                 curDialigIndex += 1;
                 PlayFinal();
             }
+            else
+            {
+                finalNode.SetActive(false);
+            }
         });
 
     }

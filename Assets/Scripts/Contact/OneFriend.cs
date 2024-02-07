@@ -37,6 +37,7 @@ public class OneFriend : MonoBehaviour
             {
                 string[] options = new string[1];
                 options[0] = "OK";
+                chatNode.GetComponent<ChatPage>().SetOptions(options);
                 chatNode.GetComponent<ChatPage>().NoahMoney();
             }
             else

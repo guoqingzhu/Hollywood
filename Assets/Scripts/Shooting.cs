@@ -89,7 +89,8 @@ public class Shooting : MonoBehaviour
             string theme = gameData.data.event_theme;
             allDialogs = gameData.data.gpt_options.dialogue;
             //themeName.text = theme;
-            roundNumText.text = "The " + gameData.data.round_number + "" + " day of shooting";
+            string day = gameData.data.round_number + Utils.dayH[Utils.GetInstance().shootingIndex];
+            roundNumText.text = "The " + day + " day of shooting";
             optionA = gameData.data.gpt_options.a;
             optionB = gameData.data.gpt_options.b;
             optionC = gameData.data.gpt_options.c;
