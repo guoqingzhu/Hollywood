@@ -57,7 +57,8 @@ public class UIManger : MonoBehaviour
     /// <param name="content"></param>
     public GameObject showChatBox(Transform parent, string actorName, string content, bool needlihui, ChatBox.CallBack cb = null)
     {
-        if (actorName == "player") {
+        if (actorName == "player")
+        {
             actorName = Utils.playerName;
         }
         var gameObject = LoadGameObject(chatBoxName);
@@ -89,7 +90,7 @@ public class UIManger : MonoBehaviour
         {
             actName = Utils.playerName;
         }
-        msg = msg.Replace("��", ",");
+        msg = msg.Replace("，", ",");
         var gameObject = LoadGameObject(actChatBoxName);
         var box = Instantiate(gameObject, parent);
         //Texture2D actImage = Resources.Load<Texture2D>(actoriginPath + actName);

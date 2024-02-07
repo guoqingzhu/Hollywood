@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class ActChatBox : MonoBehaviour
 {
-    public TextMeshProUGUI actname; // ½²»°ÈËÃû×Ö
-    public Image actorNode;  // ½²»°ÈËÕÕÆ¬
-    public TextMeshProUGUI context; // ½²»°ÄÚÈÝ
+    public TextMeshProUGUI actname; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public TextMeshProUGUI context; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public GameObject nextBtn;
     public GameObject talkbox;
 
     public GameObject lihui_Noah;
     public GameObject lihui_player;
+    public GameObject lihui_mia;
     public GameObject headIcon;
 
     public Sprite[] heads;
@@ -42,8 +42,6 @@ public class ActChatBox : MonoBehaviour
 
     public void InitChatBox(string name, Texture2D actor, string msg, CallBack cb = null)
     {
-        //actorNode.GetComponent<Image>().material.mainTexture = actor;
-        //actorNode.GetComponent<Image>().sprite = Sprite.Create(actor, new Rect(0, 0, actor.width, actor.height), new Vector2(0.5f, 0.5f));
         if (name == Utils.playerName)
         {
             lihui_player.SetActive(true);
@@ -52,29 +50,33 @@ public class ActChatBox : MonoBehaviour
         {
             lihui_Noah.SetActive(true);
         }
+        else if (name == "Mia")
+        {
+            lihui_mia.SetActive(true);
+        }
         else
         {
 
-            if (name == "Mia")
+            // if (name == "Mia")
+            // {
+            //     headIcon.GetComponent<Image>().sprite = GameObject.Find("Canvas").GetComponent<MainScene>().miaHead;
+            //     headIcon.SetActive(true);
+            // }
+            // else
+            // {
+            for (int i = 0; i < Utils.GetInstance().curActors.Length; i += 1)
             {
-                headIcon.GetComponent<Image>().sprite = GameObject.Find("Canvas").GetComponent<MainScene>().miaHead;
-                headIcon.SetActive(true);
-            }
-            else
-            {
-                for (int i = 0; i < Utils.GetInstance().curActors.Length; i += 1)
+                if (Utils.GetInstance().curActors[i].name == name)
                 {
-                    if (Utils.GetInstance().curActors[i].name == name)
-                    {
-                        headIcon.GetComponent<Image>().sprite = heads[i];
-                        headIcon.SetActive(true);
-                    }
+                    headIcon.GetComponent<Image>().sprite = heads[i];
+                    headIcon.SetActive(true);
                 }
-
             }
+
+            // }
         }
-        msg = msg.Replace("£¬", ",");
-        msg = msg.Replace("[player]",Utils.playerName);
+        msg = msg.Replace("ï¼Œ", ",");
+        msg = msg.Replace("[player]", Utils.playerName);
         actname.text = name;
         context.text = msg;
         if (cb != null) callBack = cb;
@@ -106,7 +108,7 @@ public class ActChatBox : MonoBehaviour
             {
                 if (callBack != null) callBack();
                 hasSetFinish = true;
-                // ÁÄÍêºóÉ¾³ýÁÄÌì¿ò
+                // ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 Destroy(gameObject);
             }
         }

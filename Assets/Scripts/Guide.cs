@@ -19,7 +19,7 @@ public class Guide : MonoBehaviour
         finalNode.SetActive(true);
         var name = dialogs[curDialigIndex].Split(",")[0];
         var dialog = dialogs[curDialigIndex].Split(",")[1];
-        dialog = dialog.Replace("��", ",");
+        dialog = dialog.Replace("，", ",");
         UIManger.GetInstance().showActChatBox(finalNode.transform, name, dialog, () =>
         {
             if (curDialigIndex < dialogs.Count - 1)

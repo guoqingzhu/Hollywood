@@ -240,6 +240,7 @@ RectTransform:
   m_Children:
   - {fileID: 6525566690265704222}
   - {fileID: 3724515386733063232}
+  - {fileID: 2642162191106150172}
   - {fileID: 4348379560508882607}
   - {fileID: 8694657904108067355}
   m_Father: {fileID: 0}
@@ -262,12 +263,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actname: {fileID: 6394413829517355090}
-  actorNode: {fileID: 0}
   context: {fileID: 6988432025245998255}
   nextBtn: {fileID: 1226358900794550005}
   talkbox: {fileID: 3316593282623007194}
   lihui_Noah: {fileID: 8546159025030069810}
   lihui_player: {fileID: 4484246131310692050}
+  lihui_mia: {fileID: 8614035109549311081}
   headIcon: {fileID: 7423627547369198403}
   heads:
   - {fileID: 21300000, guid: 68362ed61f812fe4cb28c80e416c6f5c, type: 3}
@@ -515,7 +516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 394, y: 774}
+  m_AnchoredPosition: {x: 394, y: 771}
   m_SizeDelta: {x: 780, y: 1478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3287426490225548430
@@ -952,7 +953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 394, y: 683}
+  m_AnchoredPosition: {x: 394, y: 686}
   m_SizeDelta: {x: 720, y: 1256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1524055022445162639
@@ -984,6 +985,81 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 1a572cf6fc91227428a1d54b3a6ddd0c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8614035109549311081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2642162191106150172}
+  - component: {fileID: 4136248150918226382}
+  - component: {fileID: 4054443382431190973}
+  m_Layer: 5
+  m_Name: lihui_mia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2642162191106150172
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614035109549311081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2172340496498979809}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 408, y: 756}
+  m_SizeDelta: {x: 815, y: 1454}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4136248150918226382
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614035109549311081}
+  m_CullTransparentMesh: 1
+--- !u!114 &4054443382431190973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614035109549311081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cefd41fc8fe959b42b79e29837881751, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

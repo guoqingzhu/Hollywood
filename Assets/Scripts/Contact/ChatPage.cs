@@ -46,7 +46,7 @@ public class ChatPage : MonoBehaviour
         myOptions = options;
         for (int i = 0; i < options.Length; i++)
         {
-            var tt = options[i].Replace("£¬", ",");
+            var tt = options[i].Replace("ï¼Œ", ",");
             optionsNode.transform.GetChild(i).GetComponentInChildren<TMP_Text>().text = tt;
         }
     }
@@ -97,7 +97,7 @@ public class ChatPage : MonoBehaviour
 
     IEnumerator DelayedMethod(float delayTime, System.Action func)
     {
-        yield return new WaitForSeconds(delayTime); // µÈ´ýÖ¸¶¨µÄÊ±¼ä
+        yield return new WaitForSeconds(delayTime); // ï¿½È´ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
         func();
     }
 
@@ -125,7 +125,7 @@ public class ChatPage : MonoBehaviour
     public void GetMessage(string text)
     {
         if (text == null || text == "") return;
-        text = text.Replace("£¬", ",");
+        text = text.Replace("ï¼Œ", ",");
         GameObject one = Instantiate(chatItem, contant.transform);
         one.GetComponent<DWChatItem>().initContent(text);
         //
@@ -162,7 +162,7 @@ public class ChatPage : MonoBehaviour
     public void OnClickSend(string text)
     {
         if (text == null || text == "") return;
-        text = text.Replace("£¬", ",");
+        text = text.Replace("ï¼Œ", ",");
         GameObject one = Instantiate(chatItem, contant.transform);
         one.GetComponent<DWChatItem>().initContent(text);
         Color color;
@@ -170,9 +170,9 @@ public class ChatPage : MonoBehaviour
         one.transform.GetChild(0).GetComponent<Image>().color = color;
         //
         RectTransform rectTransform = one.transform.GetChild(0).GetComponent<RectTransform>();
-        rectTransform.anchorMin = new Vector2(1, 0.5f); // ÉèÖÃ×îÐ¡ÃªµãÎªÆÁÄ»ÓÒÏÂ½Ç
-        rectTransform.anchorMax = new Vector2(1, 0.5f); // ÉèÖÃ×î´óÃªµãÎªÆÁÄ»ÓÒÉÏ½Ç
-        rectTransform.pivot = new Vector2(0.5f, 0.5f); // ÉèÖÃÖÐÐÄµãÎª½ÚµãµÄÓÒ²àÖÐÐÄ
+        rectTransform.anchorMin = new Vector2(1, 0.5f); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡Ãªï¿½ï¿½Îªï¿½ï¿½Ä»ï¿½ï¿½ï¿½Â½ï¿½
+        rectTransform.anchorMax = new Vector2(1, 0.5f); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãªï¿½ï¿½Îªï¿½ï¿½Ä»ï¿½ï¿½ï¿½Ï½ï¿½
+        rectTransform.pivot = new Vector2(0.5f, 0.5f); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Îªï¿½Úµï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(one.GetComponent<DWChatItem>().content.rectTransform);
         var height = one.GetComponent<DWChatItem>().content.GetComponent<RectTransform>().rect.height;

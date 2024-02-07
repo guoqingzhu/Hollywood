@@ -26,8 +26,8 @@ public class Utils : MonoBehaviour
     public static string[] shootingType = {
          "TwoActorsInteraction",
          "TwoActorsInteraction",
-         "SpecialNpcAndNpcAndPlayerInteraction",
          "TwoActorsInteraction",
+         "SpecialNpcAndNpcAndPlayerInteraction",
          "TwoActorsInteraction"
     };
 

@@ -128,7 +128,7 @@ public class Promotion : MonoBehaviour
         mainNode.SetActive(true);
         var name = dialogs[curDialigIndex].Split(",")[0];
         var dialog = dialogs[curDialigIndex].Split(",")[1];
-        dialog = dialog.Replace("��", ",");
+        dialog = dialog.Replace("，", ",");
         UIManger.GetInstance().showActChatBox(transform, name, dialog, () =>
         {
             if (curDialigIndex < dialogs.Count - 1)

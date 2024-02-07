@@ -22,7 +22,7 @@ public class Audition : MonoBehaviour
 
     public void Start()
     {
-        // »ñÈ¡ÁÐ±í
+        // ï¿½ï¿½È¡ï¿½Ð±ï¿½
         var loading = UIManger.GetInstance().showLoading(transform);
         var data = new GetFilmListReq();
         data.actor_num = 13;
@@ -61,7 +61,7 @@ public class Audition : MonoBehaviour
         dialogBg.SetActive(true);
         var name = dialogs[curDialigIndex].Split(",")[0];
         var dialog = dialogs[curDialigIndex].Split(",")[1];
-        dialog = dialog.Replace("£¬", ",");
+        dialog = dialog.Replace("ï¼Œ", ",");
         UIManger.GetInstance().showActChatBox(transform, name, dialog, () =>
         {
             if (curDialigIndex < dialogs.Count - 1)
@@ -80,12 +80,13 @@ public class Audition : MonoBehaviour
 
     public void OnClickMainBack()
     {
-        // ·µ»ØÖ÷½çÃæºóÏÔÊ¾Ò»ÌõÍ¨Öª
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ò»ï¿½ï¿½Í¨Öª
         //var guideNode = transform.parent.parent.Find("Guide");
         //guideNode.GetComponent<Guide>().ShowMesageShootingNotifi();
-        GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() => {
+        GameObject.Find("Canvas").GetComponent<MainScene>().ShowMessageNotifi(() =>
+        {
             UIManger.GetInstance().ShowShootingScene(transform.parent);
-        },"The film is signed");
+        }, "The film is signed");
         Utils.GetInstance().shootingLock = false;
         Destroy(transform.parent.gameObject);
     }
