@@ -17,3 +17,22 @@
 * MainNotification 主界面上显示游戏内的通知
 * readCSV 读取本地csv文件
 * Guide demo的入口
+
+## 项目结构
+
+    -Assets
+    --Resources
+        ---Data 本地数据表格（一些本地的对话保存在这里）
+        ---images 图片资源（按照场景分文件夹）
+        ---Prefabs 所有场景UI的预制件
+        ---spine spine文件
+    --Scenes 目前只有一个main场景作为入口，其他页面以prefab的形式加载
+    --Scripts
+        ---Audition 拍摄界面的脚本
+        ---Common 通用代码脚本
+        ---Contact 联系人界面的脚本
+        ---Dwitter 社交界面的脚本
+        ---Map 地图界面的脚本
+        ---UI 通用UI组件的脚本
+        ---Wecaht 聊天界面的脚本
+    --Spine //spine支持插件
